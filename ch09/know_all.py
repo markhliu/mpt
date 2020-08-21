@@ -20,14 +20,8 @@ while True:
         print(next(res.results).text)
         ans += str(next(res.results).text)
     except:
-        pass
-    # If the answer string is empty, try Wikipedia
-    if len(ans)==0:
         try:
             ans=wikipedia.summary(inp)
+            print(ans[0:200])
         except:
-            pass
-        print(ans[0:200])
-        # If the answer string is still empty, no answer
-        if len(ans)==0:
             print('I am still learning. I don\'t know the answer to your question yet.')
