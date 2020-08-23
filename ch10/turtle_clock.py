@@ -12,7 +12,8 @@ while True:
     # Clear the screen
     clear()
     # Obtain the current time
-    CurrentTime = arrow.utcnow().format('hh:mm:ss A')
+    current_time = arrow.utcnow()
+    local = current_time.to('US/Pacific').format('hh:mm:ss A')
     color('blue')
     up()
     goto(-300,50)
@@ -21,7 +22,7 @@ while True:
     color('red')
     goto(-300,-100)
     # Write what time it is
-    write(CurrentTime,font=('Arial',80,'normal'))
+    write(local,font=('Arial',80,'normal'))
     time.sleep(1)
     # Put everything on screen
     update()
