@@ -21,18 +21,26 @@ if platform.system() == "Windows":
 
 # If you are using Mac or Linux, use gtts for text to speech
 if  platform.system() == "Darwin" or platform.system() == "Linux":
-    from io import BytesIO
-    
-    from pydub import AudioSegment
-    from pydub.playback import play
-    from gtts import gTTS
-    
-    def print_say(text):
-    
-        print(text)
-        voice=BytesIO()
-        mytts=gTTS(text = text, lang = 'en', slow=False)
-        mytts.write_to_fp(voice)
-        voice.seek(0)
-        play(AudioSegment.from_mp3(voice))
-    
+    import os
+
+    def print_say(texts):
+        print(texts)
+        texts=texts.replace('"','')
+        os.system(f'gtts-cli --nocheck "{texts}" | mpg123 -q -')
+
+# if  platform.system() == "Darwin" or platform.system() == "Linux":
+#     from io import BytesIO
+#     
+#     from pydub import AudioSegment
+#     from pydub.playback import play
+#     from gtts import gTTS
+#     
+#     def print_say(text):
+#     
+#         print(text)
+#         voice=BytesIO()
+#         mytts=gTTS(text = text, lang = 'en', slow=False)
+#         mytts.write_to_fp(voice)
+#         voice.seek(0)
+#         play(AudioSegment.from_mp3(voice))
+#     
