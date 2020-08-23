@@ -26,11 +26,15 @@ msg.write(
   align="center",
   font=('Arial',30,'normal'))
 update()
+
+# Trick to close the window by clicking anywhere on the Screen
+screen = Screen()
+screen.exitonclick()
+
 done()
 try:
     bye()
 except Terminator:
     pass
-
 
 
