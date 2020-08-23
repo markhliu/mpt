@@ -1,21 +1,22 @@
-from turtle import *
+import turtle as t
 
-Screen()
-setup(600,500,100,200)
-bgcolor('lightgreen')
-title('Python Turtle Graphics')
-pensize(6)
-goto(200,100)
-up()
-pencolor('blue')
+t.Screen()
+t.setup(600,500,100,200)
+t.bgcolor('lightgreen')
+t.title('Python Turtle Graphics')
+t.pensize(6)
+t.goto(200,100)
+t.up()
+t.pencolor('blue')
 for i in range(8):
-    goto(-200+50*i,-150)
-    down()
-    goto(-200+50*i+30,-150)
-    up()
-hideturtle()
-done()
+    t.goto(-200+50*i,-150)
+    t.down()
+    t.goto(-200+50*i+30,-150)
+    t.up()
+t.hideturtle()
+t.done()
 try:
-    bye()
-except Terminator:
+    t.bye()
+except t.Terminator:
     pass
+
