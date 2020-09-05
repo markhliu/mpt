@@ -88,7 +88,8 @@ def mark_cell(x,y):
         # Give the turn to the other player
         if turn=="blue":
             turn="white"
-        else:turn="blue"     
+        else:
+            turn="blue"     
     # If the move is not a valid move, remind the player 
     else:
         messagebox.showerror("Error","Sorry, that's an invalid move!")      
