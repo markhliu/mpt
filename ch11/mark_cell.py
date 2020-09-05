@@ -47,7 +47,8 @@ def mark_cell(x,y):
     # Give the turn to the other player
     if turn=="blue":
         turn="white"
-    else:turn="blue"       
+    else:
+        turn="blue"       
 # Hide turtle so that you don't see the arrowhead        
 t.hideturtle()
 # Bind the mouse click to the CellNumber() function
