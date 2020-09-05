@@ -25,8 +25,8 @@ cellcenter={'1':(-200,-200), '2':(0,-200), '3':(200,-200),
 for cell, center in list(cellcenter.items()):
     t.goto(center)
     t.write(cell,font=('Arial',20,'normal'))
-# Define a function CellNumber() to print out the cell number
-def CellNumber(x,y):
+# Define a function cell_number() to print out the cell number
+def cell_number(x,y):
     if -300<x<300 and -300<y<300:
         # Calculate the column number based on x value
         col = int((x+500)//200)
@@ -35,14 +35,14 @@ def CellNumber(x,y):
         row = int((y+500)//200)
         print('row number is ', row)
         # Calculate the cell number based on col and row
-        cellnumber = col + (row - 1)*3
-        print('cell number is ', cellnumber)
+        cell_number = col + (row - 1)*3
+        print('cell number is ', cell_number)
     else:
         print('you have clicked outside the game board')
 # Hide turtle so that you don't see the arrowhead        
 t.hideturtle()
-# Bind the mouse click to the CellNumber() function
-t.onscreenclick(CellNumber)
+# Bind the mouse click to the cell_number() function
+t.onscreenclick(cell_number)
 t.listen()    
 t.done()
 try:
