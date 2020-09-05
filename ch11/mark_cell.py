@@ -1,32 +1,30 @@
-from turtle import *
+import turtle as t
 
 # Set up the screen
-Screen()
-setup(600,600)
-hideturtle()
-tracer(False)
-bgcolor("red")
-title("Tic-Tac-Toe in Turtle Graphics")
+t.setup(600,600, 10, 70)
+t.tracer(False)
+t.bgcolor("red")
+t.title("Tic-Tac-Toe in Turtle Graphics")
 # Draw horizontal lines and vertical lines to form grid
-pensize(5)
+t.pensize(5)
 for i in (-100,100):  
-    up()
-    goto(i, -300)
-    down()
-    goto(i, 300)
-    up()
-    goto(-300,i)
-    down()
-    goto(300,i)
-    up()
+    t.up()
+    t.goto(i, -300)
+    t.down()
+    t.goto(i, 300)
+    t.up()
+    t.goto(-300,i)
+    t.down()
+    t.goto(300,i)
+    t.up()
 # Create a dictionary to map cell number to the cell center coordinates
 cellcenter={'1':(-200,-200), '2':(0,-200), '3':(200,-200),
             '4':(-200,0), '5':(0,0), '6':(200,0),
             '7':(-200,200), '8':(0,200), '9':(200,200)} 
-# Create a dictionary to map cell number to the cell center coordinates
+# Go to the center of each cell, write down the cell number
 for cell, center in list(cellcenter.items()):
-    goto(center)
-    write(cell,font=('Arial',20,'normal'))
+    t.goto(center)
+    t.write(cell,font=('Arial',20,'normal'))
 # The blue player moves first
 turn="blue"
 # Define a function mark_cell() to place a dot in the cell
@@ -42,18 +40,21 @@ def mark_cell(x,y):
     else:
         print('you have clicked outside the game board')
     # Go to the corresponding cell and place a dot of the player's color
-    up()
-    goto(cellcenter[cellnumber])
-    dot(180,turn)
-    update()
+    t.up()
+    t.goto(cellcenter[cellnumber])
+    t.dot(180,turn)
+    t.update()
     # Give the turn to the other player
-    if turn=="blue":turn="white"
+    if turn=="blue":
+        turn="white"
     else:turn="blue"       
-# Bind the mouse click to the mark_cell() function
-onscreenclick(mark_cell)
-listen()    
-done()
+# Hide turtle so that you don't see the arrowhead        
+t.hideturtle()
+# Bind the mouse click to the CellNumber() function
+t.onscreenclick(mark_cell)
+t.listen()    
+t.done()
 try:
-    bye()
-except Terminator:
-    pass
+    t.bye()
+except t.Terminator:
+    print('exit turtle')
