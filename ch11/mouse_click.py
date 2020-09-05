@@ -1,20 +1,19 @@
-from turtle import *
+import turtle as t
 
 # Set up the screen
-Screen()
-setup(620,620,360,100)
-title("How Mouse-Clicks Work in Turtle Graphics")
-# Define a function GetXY() to print the x and y value of the point you click
-def GetXY(x,y):
+t.setup(620,620,360,100)
+t.title("How Mouse-Clicks Work in Turtle Graphics")
+# Define a function get_xy() to print the x and y value of the point you click
+def get_xy(x,y):
     print('x is ', x)
     print('y is ', y)
 # Hide turtle so that you don't see the arrowhead        
-hideturtle()
-# Bind the mouse click to the GetXY() function
-onscreenclick(GetXY)
-listen()
-done()
+t.hideturtle()
+# Bind the mouse click to the get_xy() function
+t.onscreenclick(get_xy)
+t.listen()    
+t.done()
 try:
-    bye()
-except Terminator:
-    pass
+    t.bye()
+except t.Terminator:
+    print('exit turtle')
