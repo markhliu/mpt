@@ -1,8 +1,8 @@
-from turtle import *
+import turtle as t
 
-Screen()
-setup(500,400,100,200)
-bgcolor('blue')
-title('Modified Screen')
-done() 
-bye()
+t.Screen()
+t.setup(600,500,100,200)
+t.bgcolor('SpringGreen3')
+t.title('Setting Up A Screen with Turtle Graphics')
+t.done()
+t.bye() 
