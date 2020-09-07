@@ -1,27 +1,26 @@
-from turtle import *
+import turtle as t
 
 # Set up the screen
-Screen()
-setup(600,500,100,200)
-bgcolor('green')
-title('Python Turtle Graphics')
-hideturtle()
-tracer(False)
-pensize(6)
+t.setup(600,500,100,200)
+t.bgcolor('green')
+t.title('Python Turtle Graphics')
+t.hideturtle()
+t.tracer(False)
+t.pensize(6)
 # Draw the first side
-forward(200)
-left(90)
+t.forward(200)
+t.left(90)
 # Draw the second side
-forward(100)
-left(90)
+t.forward(100)
+t.left(90)
 # Draw the third side
-forward(200)
-left(90)
+t.forward(200)
+t.left(90)
 # Finish the rectangle
-forward(100)
-update()
-done()
+t.forward(100)
+t.update()
+t.done()
 try:
-    bye()
-except Terminator:
-    pass
+    t.bye()
+except t.Terminator:
+    print('exit turtle')
