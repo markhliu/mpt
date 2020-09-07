@@ -1,40 +1,35 @@
-from turtle import *
+import turtle as t
 
-# Set up the screen    
-setup(810,710, 10, 70)
-tracer(False)
-hideturtle()
-pensize(5)
-up()
-goto(-200,-100)
-down()
-forward(400)
-left(90)
-forward(400)
-left(90)
-forward(400)
-left(90)
-forward(400)
+# Set up the screent.
+t.setup(810,710)
+t.tracer(False)
+t.hideturtle()
+t.bgcolor('lightgreen')
+t.color('blue')
+t.pensize(5)
+t.up()
+t.goto(-200,-100)
+t.down()
+t.forward(400)
+t.left(90)
+t.forward(400)
+t.left(90)
+t.forward(400)
+t.left(90)
+t.forward(400)
 # Create a second turtle 
-msg = Turtle()
+msg = t.Turtle()
 msg.hideturtle()
 msg.up()
 msg.color('red')
-msg.goto(0,-200)
-msg.write(
-  'Written by the second turtle',
-  align="center",
-  font=('Arial',30,'normal'))
-update()
-
-# Trick to close the window by clicking anywhere on the Screen
-screen = Screen()
-screen.exitonclick()
-
-done()
+msg.goto(-300,-200)
+msg.write('this is written by the second turtle',font=('Arial',30,'normal'))
+t.update()
+t.done()
 try:
-    bye()
-except Terminator:
-    pass
+    t.bye()
+except t.Terminator:
+    print('exit turtle')
+
 
 
