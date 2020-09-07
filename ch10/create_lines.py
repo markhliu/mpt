@@ -1,6 +1,5 @@
 import turtle as t
 
-t.Screen()
 t.setup(600,500,100,200)
 t.bgcolor('lightgreen')
 t.title('Python Turtle Graphics')
@@ -18,5 +17,5 @@ t.done()
 try:
     t.bye()
 except t.Terminator:
-    pass
+    print('exit turtle')
 
