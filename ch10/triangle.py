@@ -1,22 +1,21 @@
-from turtle import *
+import turtle as t
 
-Screen()
-setup(600,500,100,200)
-bgcolor('springgreen3')
-title('Python Turtle Graphics')
-hideturtle()
-tracer(False)
-pencolor('blue')
-pensize(5)
-up()
-goto(-50,-50)
-down()
-goto(50,-50)
-goto(0,100)
-goto(-50,-50)
-update()
-done()
+t.setup(600,500,100,200)
+t.bgcolor('springgreen3')
+t.title('Python Turtle Graphics')
+t.hideturtle()
+t.tracer(False)
+t.pencolor('blue')
+t.pensize(5)
+t.up()
+t.goto(-50,-50)
+t.down()
+t.goto(50,-50)
+t.goto(0,100)
+t.goto(-50,-50)
+t.update()
+t.done()
 try:
-    bye()
-except Terminator:
-    pass
+    t.bye()
+except t.Terminator:
+    print('exit turtle')
