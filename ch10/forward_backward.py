@@ -1,9 +1,9 @@
-from turtle import *
+import turtle as t
 
-Screen()
-setup(600,500,100,200)
-bgcolor('blue')
-title('Movements in Turtle Graphics')
-forward(200)
-backward(300)
-done()
+t.setup(600,500,100,200)
+t.bgcolor('blue')
+t.title('Movements in Turtle Graphics')
+t.forward(200)
+t.backward(300)
+t.done()
+t.bye()
