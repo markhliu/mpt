@@ -18,15 +18,15 @@ for i in (-100,100):
     t.goto(300,i)
     t.up()
 # Create a dictionary to map cell number to the cell center coordinates
-cellcenter={'1':(-200,-200), '2':(0,-200), '3':(200,-200),
+cellcenter = {'1':(-200,-200), '2':(0,-200), '3':(200,-200),
             '4':(-200,0), '5':(0,0), '6':(200,0),
             '7':(-200,200), '8':(0,200), '9':(200,200)} 
 # Go to the center of each cell, write down the cell number
 for cell, center in list(cellcenter.items()):
     t.goto(center)
-    t.write(cell,font=('Arial',20,'normal'))
+    t.write(cell,font = ('Arial',20,'normal'))
 # The blue player moves first
-turn="blue"
+turn = "blue"
 # Define a function mark_cell() to place a dot in the cell
 def mark_cell(x,y):
     # Make the variable turn a globale variable
@@ -45,10 +45,10 @@ def mark_cell(x,y):
     t.dot(180,turn)
     t.update()
     # Give the turn to the other player
-    if turn=="blue":
-        turn="white"
+    if turn == "blue":
+        turn = "white"
     else:
-        turn="blue"       
+        turn = "blue"       
 # Hide turtle so that you don't see the arrowhead        
 t.hideturtle()
 # Bind the mouse click to the CellNumber() function
