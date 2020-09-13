@@ -116,12 +116,12 @@ while True:
         validinputs.remove(inp)
         if win_game() == True:
             validinputs = []
-            messagebox.showinfo("End Game",f"Congrats player {turn}, you won!")
             print_say(f"Congrats player {turn}, you won!")
+            messagebox.showinfo("End Game",f"Congrats player {turn}, you won!")
             break
         elif rounds == 9:
-            messagebox.showinfo("Tie Game","Game over, it's a tie!")
             print_say("Game over, it's a tie!")
+            messagebox.showinfo("Tie Game","Game over, it's a tie!")
             break
         rounds += 1
         if turn == "blue":
@@ -136,3 +136,4 @@ try:
     t.bye()
 except t.Terminator:
     print('exit turtle')
+
