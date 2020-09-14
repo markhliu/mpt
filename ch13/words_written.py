@@ -89,8 +89,8 @@ while True:
                 break 
         # Remove the picked letter from the validinputs list
         validinputs.remove(inp)
-# Update everything happens in the iteration
-t.update()
+    # Update everything happens in the iteration
+    t.update()
 try:
     t.bye()
 except t.Terminator:
