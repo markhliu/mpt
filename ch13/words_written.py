@@ -74,7 +74,7 @@ while True:
             # Reduce chances left by 1
             score -= 1
             # Remove a coin
-            coins[-(6-score)].goto(0,-9000)
+            coins[-(6-score)].hideturtle()
             t.update()
             # Update the number of chances left on board
             left.clear()
