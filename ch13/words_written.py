@@ -84,7 +84,7 @@ while True:
             t.goto(-290+80*len(missed),50)
             t.write(inp,font=('Arial',60,'normal'))
             if len(missed)==6:
-                # If all six changes are used up, end game
+                # If all six chances are used up, end game
                 messagebox.showinfo("End Game","Sorry, you used up all your six chances!")
                 break 
         # Remove the picked letter from the validinputs list
