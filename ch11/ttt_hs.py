@@ -59,6 +59,11 @@ def win_game():
     if '3' in occupied[turn] and '5' in occupied[turn] and '7' in occupied[turn]:
         win = True
     return win
+# Add a dictionary of words to replace
+to_replace = {'number ':'', 'cell ':'',
+              'one':'1', 'two':'2', 'three':'3',
+              'four':'4', 'for':'4', 'five':'5',
+              'six':'6', 'seven':'7', 'eight':'8', 'nine':'9'}
 # Start an infinite loop to take voice inputs
 while True:
     # Ask for your move
@@ -66,16 +71,8 @@ while True:
     # Capture your voice input
     inp = voice_to_text()
     print_say(f"You said {inp}.")
-    inp = inp.replace('number ','')
-    inp = inp.replace('one','1')   
-    inp = inp.replace('two','2')
-    inp = inp.replace('three','3')
-    inp = inp.replace('four','4')
-    inp = inp.replace('five','5')
-    inp = inp.replace('six','6')
-    inp = inp.replace('seven','7')
-    inp = inp.replace('eight','8')
-    inp = inp.replace('nine','9')
+    for x in list(to_replace.keys()):   
+        inp = inp.replace(x, to_replace[x])
     if inp in validinputs:
         # Go to the corresponding cell and place a dot of the player's color
         t.up()
@@ -103,8 +100,9 @@ while True:
         # Give the turn to the other player
         if turn == "blue":
             turn = "white"
-        else:turn = "blue"  
-        
+        else:
+            turn = "blue"  
+ 
         # The computer makes a random move
         inp = choice(validinputs)
         print_say(f'The computer occupies cell {inp}.')
@@ -126,7 +124,8 @@ while True:
         rounds += 1
         if turn == "blue":
             turn = "white"
-        else:turn = "blue"     
+        else:
+            turn = "blue"     
 
     # If the move is not a valid move, remind the player 
     else:
