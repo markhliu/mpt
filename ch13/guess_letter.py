@@ -2,79 +2,61 @@ import turtle as t
 from random import choice
 
 # Set up the board
-t.setup(600,900)
+t.setup(600,500)
 t.hideturtle()
 t.tracer(False)
-t.bgcolor("azure")
-t.title("A Hangman Game in Turtle Graphics")
-# Draw the gallows
-t.pensize(5)
-t.pencolor("black")
-t.up()
-t.goto(0,220)
-t.down()
-t.goto(0,260)
-t.goto(250,260)
-t.goto(250,-300)
+t.bgcolor("lavender")
+t.title("Guess the Word Game in Turtle Graphics")
+# Define a variable to count how many guesses left
+score = 6
+# Create a second turtle to show guesses left
+left = t.Turtle()
+left.up()
+left.hideturtle()
+left.goto(-290,200)
+left.write(f"guesses left:   {score}", font = ('Arial',20,'normal'))
 # Put incorrect guesses on top
 t.up()
-t.goto(-290,350)
-t.write("incorrect guesses:",font=('Arial',20,'normal'))
+t.goto(-290,150)
+t.write("incorrect guesses:", font = ('Arial',20,'normal'))
 # Put four empty spaces for the 4 letters at bottom
-t.goto(-275,-400)
-t.down()
-t.goto(-175,-400)   
-t.up()
-t.goto(-125,-400)
-t.down()
-t.goto(-25,-400)   
-t.up()
-t.goto(25,-400)
-t.down()
-t.goto(125,-400)   
-t.up()
-t.goto(175,-400)
-t.down()
-t.goto(275,-400)   
-t.up()
-# Randomly pick one word
-words=['that', 'with', 'have', 'this', 'will', 'your', 
-       'from', 'they', 'know', 'want', 'been', 
-       'good', 'much', 'some', 'time']
-word=choice(words)
+for x in range(4):
+    t.goto(-275+150*x,-200)
+    t.down()
+    t.goto(-175+150*x,-200)   
+    t.up()
+t.update()
+# Put words in a dictionary and randomly pick one
+words = ['that', 'with', 'have', 'this', 'will', 'your', 
+   'from', 'they', 'know', 'want', 'been', 
+   'good', 'much', 'some', 'time']
+word = choice(words)
 # Create a missed list
-missed=[]
+missed = []
 # Start the game loop
 while True:
     # Take written input 
-    inp=input("What's your choice?\n").lower()
+    inp = input("What's your guess?\n").lower()
     # Stop the loop if you key in "done"
-    if inp=="done":
+    if inp == "done":
         break
     # Check if the picked letter is in the word, if yes, put it in the right position(s)
     elif inp in list(word):
-        if inp==list(word)[0]:
-            t.goto(-250,-390)
-            t.write(inp,font=('Arial',60,'normal'))
-        if inp==list(word)[1]:
-            t.goto(-100,-390)
-            t.write(inp,font=('Arial',60,'normal'))
-        if inp==list(word)[2]:
-            t.goto(40,-390)
-            t.write(inp,font=('Arial',60,'normal'))
-        if inp==list(word)[3]:
-            t.goto(190,-390)
-            t.write(inp,font=('Arial',60,'normal')) 
-        continue
-    # If the guessed letter is not in the word, show it at the top
+        # If yes, put it in the right position(s)
+        for w in range(4):
+            if inp == list(word)[w]:
+                t.goto(-250+150*w,-190)
+                t.write(inp, font = ('Arial',60,'normal'))
+    # If the picked letter is not in the word, show it at the top
     else:
         missed.append(inp)
-        t.goto(-290+80*len(missed),260)
-        t.write(inp,font=('Arial',60,'normal'))
-        continue
-t.done()
+        t.goto(-290+80*len(missed),60)
+        t.write(inp, font = ('Arial',60,'normal'))
+    # Update everything happens in the iteration
+    t.update()
 try:
     t.bye()
 except t.Terminator:
     print('exit turtle')
+
 
