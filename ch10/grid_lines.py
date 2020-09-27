@@ -13,7 +13,7 @@ for i in range(-350,400,100):
     t.down()
     t.goto(i, 303)
     t.up()
-# Draw the horizontal lines to separate the screen in 6 rowst.
+# Draw the horizontal lines to separate the screen in 6 rows
 t.pensize(1)
 t.color('gray')
 for i in range(-300,400,101):  
