@@ -24,10 +24,10 @@ for i in range(-200,300,100):
     t.goto(350,i)
     t.up()
 # Write column numbers on the board
-colnum=1
+colnum = 1
 for x in range(-300, 350, 100):
     t.goto(x,270)
-    t.write(colnum,font=('Arial',20,'normal'))
+    t.write(colnum,font = ('Arial',20,'normal'))
     colnum += 1
 t.done()        
 try:
