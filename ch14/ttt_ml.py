@@ -22,80 +22,80 @@ for i in (-100,100):
     t.goto(300,i)
     t.up()
 # Create a dictionary to map cell number to the cell center coordinates
-cellcenter={'1':(-200,-200), '2':(0,-200), '3':(200,-200),
+cellcenter = {'1':(-200,-200), '2':(0,-200), '3':(200,-200),
             '4':(-200,0), '5':(0,0), '6':(200,0),
             '7':(-200,200), '8':(0,200), '9':(200,200)} 
 # Go to the center of each cell, write down the cell number
 for cell, center in list(cellcenter.items()):
     t.goto(center)
-    t.write(cell,font=('Arial',20,'normal'))
+    t.write(cell,font = ('Arial',20,'normal'))
 # The blue player moves first
-turn="blue"
+turn = "blue"
 # Count how many rounds played
 rounds = 1
 # A history of moves moade
-moves_made=[]
+moves_made = []
 # Obtain gamedata
 with open('ttt_simulates.pickle', 'rb') as fp:
-    gamedata=pickle.load(fp)
+    gamedata = pickle.load(fp)
 # Create a list of valid moves
-validinputs=list(cellcenter.keys())
-occupied={"blue":[],"white":[]}
+validinputs = list(cellcenter.keys())
+occupied = {"blue":[],"white":[]}
 def win_game(lst,color):
-    win=False
+    win = False
     if '1' in lst[color] and '2' in lst[color] and '3' in lst[color]:
-        win=True
+        win = True
     if '4' in lst[color] and '5' in lst[color] and '6' in lst[color]:
-        win=True
+        win = True
     if '7' in lst[color] and '8' in lst[color] and '9' in lst[color]:
-        win=True
+        win = True
     if '1' in lst[color] and '4' in lst[color] and '7' in lst[color]:
-        win=True
+        win = True
     if '2' in lst[color] and '5' in lst[color] and '8' in lst[color]:
-        win=True
+        win = True
     if '3' in lst[color] and '6' in lst[color] and '9' in lst[color]:
-        win=True
+        win = True
     if '1' in lst[color] and '5' in lst[color] and '9' in lst[color]:
-        win=True
+        win = True
     if '3' in lst[color] and '5' in lst[color] and '7' in lst[color]:
-        win=True
+        win = True
     return win
 # The simulated data assume blue moves first, 1 means blue wins
 def best_move():
-    if len(moves_made)==0:
+    if len(moves_made) == 0:
         return "5"
-    if len(moves_made)==8:
+    if len(moves_made) == 8:
         return validinputs[0]
     else:
-        simu=[]
+        simu = []
         for y in gamedata:
-           if y[1:len(moves_made)+1]==moves_made:
+           if y[1:len(moves_made)+1] == moves_made:
                simu.append(y)
         # Look at the next move;           
-        outcomes={x:[] for x in validinputs} 
+        outcomes = {x:[] for x in validinputs} 
         # Collect all the outcomes for each next move
         for y in simu:
            outcomes[y[len(moves_made)+1]].append(y[0])
         # Set the initial value of bestoutcome        
-        bestoutcome=-1;
+        bestoutcome = -1;
         # Randomly select a move to be bestmove
-        bestmove=validinputs[0]
+        bestmove = validinputs[0]
         # Iterate through all possible next moves 
         for move in validinputs:
             if len(outcomes[move])>0:
-                outcome=sum(outcomes[move])/len(outcomes[move])
+                outcome = sum(outcomes[move])/len(outcomes[move])
                 # If the average outcome from that move beats the current best move
                 if outcome>bestoutcome:
                     # Update the bestoutcome
-                    bestoutcome=outcome
+                    bestoutcome = outcome
                     # Update the best move
-                    bestmove=move
+                    bestmove = move
         return bestmove         
 def computer_move():
     global turn, rounds, validinputs
-    move=best_move()
-    if move==None:
-        move=choice(validinputs)
+    move = best_move()
+    if move == None:
+        move = choice(validinputs)
     # Go to the corresponding cell and place a dot of the player's color
     t.up()
     t.goto(cellcenter[move])
@@ -107,21 +107,20 @@ def computer_move():
     # Disallow the move in future rounds
     validinputs.remove(move)
     # Check if the player has won the game
-    if win_game(occupied,turn)==True:
+    if win_game(occupied,turn) == True:
         # If a player wins, invalid all moves, end the game
-        validinputs=[]
+        validinputs = []
         messagebox.showinfo("End Game",f"Congrats player {turn}, you won!")
     # If all cellls are occupied and no winner, it's a tie
-    else:
-        if rounds==9:
-            messagebox.showinfo("Tie Game","Game over, it's a tie!")
+    elif rounds == 9:
+        messagebox.showinfo("Tie Game","Game over, it's a tie!")
     # Counting rounds
-    rounds += 1
+    rounds +=  1
     # Give the turn to the other player
-    if turn=="blue":
-        turn="white"
+    if turn == "blue":
+        turn = "white"
     else:
-        turn="blue"    
+        turn = "blue"    
 # Computer moves first
 computer_move()   
 def mark_cell(x,y):
@@ -149,21 +148,20 @@ def mark_cell(x,y):
         # Disallow the move in future rounds
         validinputs.remove(cellnumber)
         # Check if the player has won the game
-        if win_game(occupied,turn)==True:
+        if win_game(occupied,turn) == True:
             # If a player wins, invalid all moves end the game
-            validinputs=[]
+            validinputs = []
             messagebox.showinfo("End Game",f"Congrats player {turn}, you won!")
         # If all cellls are occupied and no winner, it's a tie
-        else:
-            if rounds==9:
-                messagebox.showinfo("Tie Game","Game over, it's a tie!")
+        elif rounds == 9:
+            messagebox.showinfo("Tie Game","Game over, it's a tie!")
         # Counting rounds
-        rounds += 1
+        rounds +=  1
         # Give the turn to the other player
-        if turn=="blue":
-            turn="white"
+        if turn == "blue":
+            turn = "white"
         else:
-            turn="blue"   
+            turn = "blue"   
         # Computer moves a move
         if len(validinputs)>0:
             computer_move()
