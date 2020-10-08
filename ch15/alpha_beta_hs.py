@@ -3,34 +3,31 @@ from datetime import date, timedelta
 import statsmodels.api as sm
 from pandas_datareader import data as pdr
 import requests
-from bs4 import BeautifulSoup as bs
 
 from mptpkg import voice_to_text, print_say
 
 def alpha_beta(firm):
-    # Change the empty space to "+" 
-    myfirm=firm.replace(' ', '+')
-    # Extract the source code from the website
-    res = requests.get('https://www.marketwatch.com/tools/quotes/lookup.asp?siteID=mktw&Lookup='+myfirm+'&Country=us&Type=All')
     try:
-        res.raise_for_status()   
-        # Parse the code
-        soup = bs(res.text, 'html.parser')
-        # Collect all td tags from the source code
-        tags = soup('td')
-        # The very first td tag is your ticker
-        ticker = tags[0].text
+        # Extract the source code from the website
+        url = 'https://query1.finance.yahoo.com/v1/finance/search?q='+firm
+        response = requests.get(url)
+        # Read the JSON data
+        response_json = response.json()
+        # Obtain the value corresponding to "quotes"
+        quotes = response_json['quotes']
+        # Get the ticker symbol
+        ticker = quotes[0]['symbol']
         # Set the start and end dates
         end_date = date.today().strftime("%Y-%m-%d")
         start_date = (date.today() - timedelta(days=180)).strftime("%Y-%m-%d")
         # Retieve prices
-        sp = pdr.get_data_yahoo( "^GSPC", start=start_date, end=end_date)
-        stock = pdr.get_data_yahoo(ticker, start=start_date, end=end_date)
+        sp = pdr.get_data_yahoo( "^GSPC", start = start_date, end = end_date)
+        stock = pdr.get_data_yahoo(ticker, start = start_date, end = end_date)
         # Calculate returns for sp500 and the stock
-        sp['ret_sp'] =(sp['Adj Close']/sp['Adj Close'].shift(1))-1
-        stock['ret_stock'] =(stock['Adj Close']/stock['Adj Close'].shift(1))-1
+        sp['ret_sp'] = (sp['Adj Close']/sp['Adj Close'].shift(1))-1
+        stock['ret_stock'] = (stock['Adj Close']/stock['Adj Close'].shift(1))-1
         # Merge the two datasets, keep only returns
-        df = sp[['ret_sp']].merge(stock[['ret_stock']], left_index=True, right_index=True) 
+        df = sp[['ret_sp']].merge(stock[['ret_stock']], left_index = True, right_index = True) 
         # Add risk free rate (assume constant for simplicity) 
         df['rf'] = 0.00001
         # We need a constant to run regressions
@@ -38,12 +35,12 @@ def alpha_beta(firm):
         df['exret_stock'] = df.ret_stock - df.rf
         df['exret_sp'] = df.ret_sp - df.rf
         # Remove missing values
-        df.dropna(inplace=True) 
+        df.dropna(inplace = True) 
         # Calculate the stock's alpha and Beta
-        reg = sm.OLS(endog=df['exret_stock'], exog=df[['const', 'exret_sp']], missing='drop')
+        reg = sm.OLS(endog = df['exret_stock'], exog = df[['const', 'exret_sp']], missing = 'drop')
         results = reg.fit()
-        alpha=round(results.params['const']*100,3)
-        beta=round(results.params['exret_sp'],2)
+        alpha = round(results.params['const']*100,3)
+        beta = round(results.params['exret_sp'],2)
         # Speak the values of alpha and beta
         print_say(f'The alpha of the stock of {firm} is {alpha} percent.')
         print_say(f'The beta of the stock of {firm} is {beta}.')
