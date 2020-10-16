@@ -1,5 +1,4 @@
 import requests
-from bs4 import BeautifulSoup as bs
 from yahoo_fin import stock_info as si
 
 from mptpkg import print_say
@@ -7,19 +6,19 @@ from mptpkg import print_say
 # Define stock_price() function
 def stock_price(v_inp):
     # Extract company name
-    pos=v_inp.find("stock price of")
-    myfirm=v_inp[pos+len("stock price of "):]
-    # Extract the source code from the website
-    res = requests.get('https://www.marketwatch.com/tools/quotes/lookup.asp?siteID=mktw&Lookup='+myfirm+'&Country=us&Type=All')
+    pos = v_inp.find("stock price of")
+    myfirm = v_inp[pos+len("stock price of "):]
     # Prevent crashing in case there is no result
     try:
-        res.raise_for_status()
-        # Parse the code
-        soup = bs(res.text, 'html.parser')
-        # Collect all td tags from the source code
-        tags = soup('td')
-        # The text of the very first td tag is your ticker
-        ticker = tags[0].text
+        # Extract the source code from the website
+        url = 'https://query1.finance.yahoo.com/v1/finance/search?q='+myfirm
+        response = requests.get(url)
+        # Read the JSON data
+        response_json = response.json()
+        # Obtain the value corresponding to "quotes"
+        quotes = response_json['quotes']
+        # Get the ticker symbol
+        ticker = quotes[0]['symbol']
         # Obtain real-time stock price from Yahoo
         price = round(float(si.get_live_price(ticker)),2)
         # Speak the stock price
