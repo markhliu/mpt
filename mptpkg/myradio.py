@@ -15,4 +15,5 @@ def radio_stop():
     global button
     try:
         button.click()
-    except:pass
+    except:
+        print('no radio to stop')
