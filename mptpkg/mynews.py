@@ -32,4 +32,5 @@ def news_brief():
 def news_stop():
     try:
         mixer.music.stop()
-    except:pass
+    except:
+        print('no news to stop')
