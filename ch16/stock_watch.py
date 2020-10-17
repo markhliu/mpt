@@ -31,7 +31,7 @@ for i in range(5):
     if i<=1:
         print_say(f'The latest value for {names[i]} is {p}!')            
     else:
-        print_say(f'The latest stock price for {names[i]} is ${p}!') 
+        print_say(f'The latest stock price for {names[i]} is {str(p)[0:-3]} dollars and {str(p)[-2:]} cents!') 
 # Define the stock_watch() function
 def stock_watch():
     # Declare global variables 
@@ -67,7 +67,7 @@ def stock_watch():
             if i<=1:
                 print_say(f'The latest value for {names[i]} is {p[i]}!')            
             else:
-                print_say(f'The latest stock price for {names[i]} is ${p[i]}!') 
+                print_say(f'The latest stock price for {names[i]} is {str(p[i])[0:-3]} dollars and {str(p[i])[-2:]} cents!') 
     # if price goes out of bounds, announce it
     for i in range(5):     
         if p[i]>maxprice[i]:
@@ -80,7 +80,4 @@ def stock_watch():
 stock_watch()  
 # Run the game loop
 root.mainloop()
-
-
-    
 
