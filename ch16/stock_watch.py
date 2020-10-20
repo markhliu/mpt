@@ -1,9 +1,11 @@
-import tkinter as tk
-
 import arrow
+import tkinter as tk
 from yahoo_fin import stock_info as si
-
 from mptpkg import print_say
+
+def speakable_price(amt):
+    d,c = str(amt).split('.')
+    return(f"{d} dollars and {c} cents")
 
 # Create a root window hold all widgets
 root = tk.Tk()
@@ -23,15 +25,18 @@ names = ['DOW JONES','S&P500', 'Apple', 'Amazon', 'Tesla']
 oldprice=[]
 maxprice=[]
 minprice=[]
-for i in range(5):
+for i in range(len(tickers)):
     p=round(float(si.get_live_price(tickers[i])),2)
     oldprice.append(p)
     maxprice.append(p*1.05)
     minprice.append(p*0.95)
+    spoken_amount = speakable_price(p)
     if i<=1:
         print_say(f'The latest value for {names[i]} is {p}!')            
     else:
-        print_say(f'The latest stock price for {names[i]} is {str(p)[0:-3]} dollars and {str(p)[-2:]} cents!') 
+        print_say(f'The latest stock price for {names[i]} is {spoken_amount}!') 
+
+
 # Define the stock_watch() function
 def stock_watch():
     # Declare global variables 
@@ -61,12 +66,14 @@ def stock_watch():
     # Put all the five messages on the stock market in the second label        
     label2.configure(text=m1+"\n"+m2+"\n"+m3+"\n"+m4+"\n"+m5, justify=tk.LEFT)
     # If there is update in the marekt, announce it
-    for i in range(5):     
+    for i in range(len(p)):     
         if p[i]!=oldprice[i]:
             oldprice[i]=p[i]
+            spoken_amount = speakable_price(p[i])
             if i<=1:
                 print_say(f'The latest value for {names[i]} is {p[i]}!')            
             else:
+                print_say(f'The latest stock price for {names[i]} is {spoken_amount}!') 
                 print_say(f'The latest stock price for {names[i]} is {str(p[i])[0:-3]} dollars and {str(p[i])[-2:]} cents!') 
     # if price goes out of bounds, announce it
     for i in range(5):     
