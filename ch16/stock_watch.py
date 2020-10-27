@@ -46,13 +46,13 @@ def stock_watch():
     m2 = f'S&P500: {p2}'
     # Obtain live price information for Apple stock from Yahoo        
     p3 = round(float(si.get_live_price("AAPL")), 2)
-    m3 = f'Apple: ${p3}'
+    m3 = f'Apple: {p3}'
     # Obtain live price information for Amazon stock from Yahoo                
     p4 = round(float(si.get_live_price("AMZN")), 2)
-    m4 = f'Amazon: ${p4}'
+    m4 = f'Amazon: {p4}'
     # Obtain live price information for Tesla stock from Yahoo                
     p5 = round(float(si.get_live_price("TSLA")), 2)
-    m5 = f'Tesla: ${p5}'
+    m5 = f'Tesla: {p5}'
     # Put the five prices in a list p
     p = [p1, p2, p3, p4, p5]
     # Obtain current date and time infomration         
