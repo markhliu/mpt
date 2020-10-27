@@ -16,26 +16,27 @@ label.pack()
 # Create a second label
 label2 = tk.Label(text="", fg="Red", font=("Helvetica", 60))
 label2.pack()
+
+
 # Define the bitcoin_watch() function
 def bitcoin_watch():
-    global oldprice
     # Get the live information from bitcoin url
     response = requests.get(url)
     response_json = response.json()
-    price=response_json['bpi']['USD']['rate_float']
-    # Obtain current date and time infomration         
-    tdate=arrow.utcnow().format('MMMM DD, YYYY')
-    tm=arrow.utcnow().format('hh:mm:ss A')
+    price = response_json['bpi']['USD']['rate_float']
+    # Obtain current date and time information         
+    tdate = arrow.utcnow().format('MMMM DD, YYYY')
+    tm = arrow.utcnow().format('hh:mm:ss A')
     # Put the date and time information in the first label         
-    label.configure(text=tdate+"\n"+tm)
+    label.configure(text=tdate + "\n" + tm)
     # Put price info in the second label        
-    label2.configure(text=f'Bitcoin: {price}',justify=tk.LEFT)     
+    label2.configure(text=f'Bitcoin: {price}', justify=tk.LEFT)
     # Call the bitcoin_watch() function after 1000 milliseconds
     root.after(1000, bitcoin_watch)
+
+
 # Call the bitcoin_watch() function
-bitcoin_watch()  
+bitcoin_watch()
+
 # Run the game loop
 root.mainloop()
-
-
-
