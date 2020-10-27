@@ -7,7 +7,7 @@ response = requests.get(url)
 # Read the JSON data
 response_json = response.json()
 # Obtain the USD dictionary
-usd=response_json['bpi']['USD']
+usd = response_json['bpi']['USD']
 # Get the price
-price=usd['rate_float']
-print(f"The Bitcoin price is ${price}.")
+price = usd['rate_float']
+print(f"The Bitcoin price is {price} dollars.")
