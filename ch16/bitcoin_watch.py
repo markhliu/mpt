@@ -21,10 +21,11 @@ label2.pack()
 # Set up the price bounds
 response = requests.get(url)
 response_json = response.json()
-oldprice=response_json['bpi']['USD']['rate_float']
-maxprice=oldprice*1.05
-minprice=oldprice*0.95
+oldprice = response_json['bpi']['USD']['rate_float']
+maxprice = oldprice * 1.05
+minprice = oldprice * 0.95
 print_say(f'The Bitcoin price is now {oldprice}!')
+
 
 # Define the bitcoin_watch() function
 def bitcoin_watch():
@@ -32,27 +33,29 @@ def bitcoin_watch():
     # Get the live information from bitcoin url
     response = requests.get(url)
     response_json = response.json()
-    price=response_json['bpi']['USD']['rate_float']
+    price = response_json['bpi']['USD']['rate_float']
     # If there is update in price, announce it    
-    if price!=oldprice:
-        oldprice=price
+    if price != oldprice:
+        oldprice = price
         print_say(f'The Bitcoin price is now {oldprice}!')
     # If price goes out of bounds, announce it    
-    if price>maxprice:
-        print_say('The Bitcoin price has gone above the upper bound!')    
-    if price<price:
-        print_say('The Bitcoin price has gone below the lower bound!')    
-    # Obtain current date and time infomration         
-    tdate=arrow.utcnow().format('MMMM DD, YYYY')
-    tm=arrow.utcnow().format('hh:mm:ss A')
+    if price > maxprice:
+        print_say('The Bitcoin price has gone above the upper bound!')
+    if price < price:
+        print_say('The Bitcoin price has gone below the lower bound!')
+        # Obtain current date and time information         
+    tdate = arrow.utcnow().format('MMMM DD, YYYY')
+    tm = arrow.utcnow().format('hh:mm:ss A')
     # Put the date and time information in the first label         
-    label.configure(text=tdate+"\n"+tm)
+    label.configure(text=tdate + "\n" + tm)
     # Put all the five messages on the stock market in the second label        
-    label2.configure(text=f'Bitcoin: {price}', justify=tk.LEFT)     
-    #call the bitcoin_watch() function after 1000 milliseconds
+    label2.configure(text=f'Bitcoin: {price}', justify=tk.LEFT)
+    # call the bitcoin_watch() function after 1000 milliseconds
     root.after(1000, bitcoin_watch)
+
+
 # call the bitcoin_watch() function
-bitcoin_watch()  
+bitcoin_watch()
 # run the game loop
 root.mainloop()
 
