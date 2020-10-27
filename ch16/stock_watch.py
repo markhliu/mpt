@@ -32,9 +32,9 @@ for i in range(5):
         print_say(f'The latest value for {names[i]} is {p}!')
     else:
         print_say(f'The latest stock price for {names[i]} is {p} dollars!')
-    # Define the stock_watch() function
+    
 
-
+# Define the stock_watch() function
 def stock_watch():
     # Declare global variables 
     global oldprice, maxprice, minprice
