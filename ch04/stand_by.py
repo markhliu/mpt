@@ -16,6 +16,6 @@ while True:
         except sr.WaitTimeoutError:
             pass
     print(f'You just said {inp}.')
-    if inp=="stop listening":
+    if inp == "stop listening":
         print('Goodbye!')
         break
