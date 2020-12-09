@@ -5,9 +5,9 @@ from pydub import AudioSegment
 from pydub.playback import play
 
 # Convert text to speech in Spanish
-tts=gTTS(text='Buenos días',lang='es-es')
+tts = gTTS(text='Buenos días',lang='es-es')
 # Create a temporary file 
-voice=BytesIO()
+voice = BytesIO()
 # Save the voice output as an audio file
 tts.write_to_fp(voice)
 # Play the audio file
