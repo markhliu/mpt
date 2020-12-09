@@ -20,14 +20,14 @@ with sr.Microphone() as source:
     except sr.UnknownValueError:
         pass
 # Specify the input and output languages
-translator= Translator(from_lang="en",to_lang="es")
+translator = Translator(from_lang="en",to_lang="es")
 # Do the actual translation
 translation = translator.translate(my_input)
 print(translation)
 # Convert text to speech in Spanish
-tts=gTTS(text=translation,lang='es-es')
+tts = gTTS(text=translation,lang='es-es')
 # Create a temporary file 
-voice=BytesIO()
+voice = BytesIO()
 # Save the voice output as an audio file
 tts.write_to_fp(voice)
 # Play the audio file
@@ -45,14 +45,14 @@ with sr.Microphone() as source:
     except sr.UnknownValueError:
         pass
 # Specify the input and output languages
-translator= Translator(from_lang="es",to_lang="en")
+translator = Translator(from_lang="es",to_lang="en")
 # Do the actual translation
 translation = translator.translate(my_input)
 print(translation)
 # Convert text to speech in Spanish
-tts=gTTS(text=translation,lang='en')
+tts = gTTS(text=translation,lang='en')
 # Create a temporary file 
-voice=BytesIO()
+voice = BytesIO()
 # Save the voice output as an audio file
 tts.write_to_fp(voice)
 # Play the audio file
