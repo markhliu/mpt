@@ -50,7 +50,9 @@ def horizontal4(x, y, turn):
     win = False
     for dif in (-3, -2, -1, 0):
         try:
-            if occupied[x+dif][y] == turn and occupied[x+dif+1][y] == turn and occupied[x+dif+2][y] == turn and occupied[x+dif+3][y] == turn and  x+dif >= 0:
+            if occupied[x+dif][y] == turn and occupied[x+dif+1][y] == turn\
+            and occupied[x+dif+2][y] == turn and occupied[x+dif+3][y] == turn\
+            and  x+dif >= 0:
                 win = True            
         except IndexError:
             pass
@@ -59,16 +61,23 @@ def horizontal4(x, y, turn):
 def vertical4(x, y, turn):
     win = False
     try:
-        if occupied[x][y] == turn and occupied[x][y-1] == turn and occupied[x][y-2] == turn and occupied[x][y-3] == turn and y-3 >= 0:
+        if occupied[x][y] == turn and occupied[x][y-1] == turn\
+        and occupied[x][y-2] == turn and occupied[x][y-3] == turn\
+        and y-3 >= 0:
             win = True     
     except IndexError:
         pass
-    return win   # Define a forward4() function to check connecting 4 diagonally in / shape
+    return win   
+# Define a forward4() function to check connecting 4 diagonally in / shape
 def forward4(x, y, turn):
     win = False
     for dif in (-3, -2, -1, 0):
         try:
-            if occupied[x+dif][y+dif] == turn and occupied[x+dif+1][y+dif+1] == turn and occupied[x+dif+2][y+dif+2] == turn and occupied[x+dif+3][y+dif+3] == turn and x+dif >= 0 and y+dif >= 0:
+            if occupied[x+dif][y+dif] == turn\
+            and occupied[x+dif+1][y+dif+1] == turn\
+            and occupied[x+dif+2][y+dif+2] == turn\
+            and occupied[x+dif+3][y+dif+3] == turn\
+            and x+dif >= 0 and y+dif >= 0:
                 win = True            
         except IndexError:
             pass
@@ -78,7 +87,11 @@ def back4(x, y, turn):
     win = False
     for dif in (-3, -2, -1, 0):
         try:
-            if occupied[x+dif][y-dif] == turn and occupied[x+dif+1][y-dif-1] == turn and occupied[x+dif+2][y-dif-2] == turn and occupied[x+dif+3][y-dif-3] == turn and x+dif >= 0 and y-dif-3 >= 0:
+            if occupied[x+dif][y-dif] == turn\
+            and occupied[x+dif+1][y-dif-1] == turn\
+            and occupied[x+dif+2][y-dif-2] == turn\
+            and occupied[x+dif+3][y-dif-3] == turn\
+            and x+dif >= 0 and y-dif-3 >= 0:
                 win = True            
         except IndexError:
             pass
@@ -159,4 +172,3 @@ try:
     t.bye()
 except t.Terminator:
     print('exit turtle')
-
