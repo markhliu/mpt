@@ -50,8 +50,10 @@ def horizontal4(x, y, turn):
     win = False
     for dif in (-3, -2, -1, 0):
         try:
-            if occupied[x+dif][y] == turn and occupied[x+dif+1][y] == turn\
-            and occupied[x+dif+2][y] == turn and occupied[x+dif+3][y] == turn\
+            if occupied[x+dif][y] == turn\
+            and occupied[x+dif+1][y] == turn\
+            and occupied[x+dif+2][y] == turn\
+            and occupied[x+dif+3][y] == turn\
             and  x+dif >= 0:
                 win = True            
         except IndexError:
@@ -61,8 +63,10 @@ def horizontal4(x, y, turn):
 def vertical4(x, y, turn):
     win = False
     try:
-        if occupied[x][y] == turn and occupied[x][y-1] == turn\
-        and occupied[x][y-2] == turn and occupied[x][y-3] == turn\
+        if occupied[x][y] == turn\
+        and occupied[x][y-1] == turn\
+        and occupied[x][y-2] == turn\
+        and occupied[x][y-3] == turn\
         and y-3 >= 0:
             win = True     
     except IndexError:
