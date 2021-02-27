@@ -21,7 +21,7 @@ left.write(f"guesses left:   {score}", font = ('Arial',20,'normal'))
 t.up()
 t.goto(-290,150)
 t.write("incorrect guesses:", font = ('Arial',20,'normal'))
-# Put four empty spaces for the 4 letters at bottom
+# Put four empty spaces for the four letters at bottom
 for x in range(4):
     t.goto(-275+150*x,-200)
     t.down()
@@ -36,7 +36,7 @@ word = choice(words)
 # Create a missed list
 missed = []
 # Load a picture of the coin to the script
-coin  =  PhotoImage(file = "cash.png").subsample(10,10)
+coin = PhotoImage(file = "cash.png").subsample(10,10)
 t.addshape("coin", t.Shape("image", coin))
 # Create six coin on screen 
 coins = [0]*6
@@ -60,7 +60,7 @@ while True:
         messagebox.showerror("Error","Sorry, that's an invalid input!")
     # Otherwise, go ahead with the game
     else:  
-        # Check if the picked letter is in the word, if yes, put it in the right position(s)
+        # Check if the letter is in the word
         if inp in list(word):
             # If yes, put it in the right position(s)
             for w in range(4):
@@ -70,9 +70,10 @@ while True:
                     gotright.append(inp)
             # If got four positions right, the player wins
             if len(gotright) == 4:
-                messagebox.showinfo("End Game","Great job, you got the word right!")
+                messagebox.showinfo\
+                ("End Game","Great job, you got the word right!")
                 break
-        # If the picked letter is not in the word, show it at the top
+        # If the letter is not in the word, show it at the top
         else:
             # Reduce guesses left by 1
             score -=  1
@@ -80,18 +81,20 @@ while True:
             coins[-(6-score)].hideturtle()
             # Update the number of guesses left on board
             left.clear()
-            left.write(f"guesses left:   {score}", font = ('Arial',20,'normal'))
+            left.write\
+            (f"guesses left:   {score}", font = ('Arial',20,'normal'))
             t.update()            
             missed.append(inp)
             t.goto(-290+80*len(missed),60)
             t.write(inp, font = ('Arial',60,'normal'))
             if len(missed) == 6:
                 # If all six changes are used up, end game
-                messagebox.showinfo("End Game","Sorry, you used up all your six guesses!")
+                messagebox.showinfo\
+                ("End Game","Sorry, you used up all your six guesses!")
                 break 
-        # Remove the picked letter from the validinputs list
+        # Remove the letter from the validinputs list
         validinputs.remove(inp)       
-    # Update everything happens in the iteration
+    # Update everything that happens in the iteration
     t.update()
 try:
     t.bye()
