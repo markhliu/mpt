@@ -18,7 +18,7 @@ left.write(f"guesses left:   {score}", font = ('Arial',20,'normal'))
 t.up()
 t.goto(-290,150)
 t.write("incorrect guesses:", font = ('Arial',20,'normal'))
-# Put four empty spaces for the 4 letters at bottom
+# Put four empty spaces for the four letters at bottom
 for x in range(4):
     t.goto(-275+150*x,-200)
     t.down()
