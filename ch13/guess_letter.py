@@ -19,7 +19,7 @@ left.write(f"guesses left:   {score}", font = ('Arial',20,'normal'))
 t.up()
 t.goto(-290,150)
 t.write("incorrect guesses:", font = ('Arial',20,'normal'))
-# Put four empty spaces for the 4 letters at bottom
+# Put four empty spaces for the four letters at bottom
 for x in range(4):
     t.goto(-275+150*x,-200)
     t.down()
@@ -40,23 +40,21 @@ while True:
     # Stop the loop if you key in "done"
     if inp == "done":
         break
-    # Check if the picked letter is in the word, if yes, put it in the right position(s)
+    # Check if the letter is in the word
     elif inp in list(word):
         # If yes, put it in the right position(s)
         for w in range(4):
             if inp == list(word)[w]:
                 t.goto(-250+150*w,-190)
                 t.write(inp, font = ('Arial',60,'normal'))
-    # If the picked letter is not in the word, show it at the top
+    # If the letter is not in the word, show it at the top
     else:
         missed.append(inp)
         t.goto(-290+80*len(missed),60)
         t.write(inp, font = ('Arial',60,'normal'))
-    # Update everything happens in the iteration
+    # Update everything that happens in the iteration
     t.update()
 try:
     t.bye()
 except t.Terminator:
     print('exit turtle')
-
-
