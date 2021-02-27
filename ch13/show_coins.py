@@ -5,7 +5,7 @@ from time import sleep
 # Set up the board
 t.setup(600,500)
 t.hideturtle()
-t.tracer(True)
+t.tracer(False)
 t.bgcolor("lavender")
 t.title("Guess the Word Game in Turtle Graphics")
 # Define a variable to count how many guesses left
@@ -20,7 +20,7 @@ left.write(f"guesses left:   {score}", font = ('Arial',20,'normal'))
 t.up()
 t.goto(-290,150)
 t.write("incorrect guesses:", font = ('Arial',20,'normal'))
-# Put four empty spaces for the 4 letters at bottom
+# Put four empty spaces for the four letters at bottom
 for x in range(4):
     t.goto(-275+150*x,-200)
     t.down()
@@ -37,7 +37,7 @@ for i in range(6):
     coins[i].goto(-100+50*i,0)
 t.update()
 sleep(3)
-# Make the coins disappear on at a time
+# Make the coins disappear one at a time
 for i in range(6):
     coins[-(i+1)].hideturtle()
     t.update()
