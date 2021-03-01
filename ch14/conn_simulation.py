@@ -10,7 +10,11 @@ def simulate():
         win = False
         for dif in (-3, -2, -1, 0):
             try:
-                if occupied[x+dif][y] == turn and occupied[x+dif+1][y] == turn and occupied[x+dif+2][y] == turn and occupied[x+dif+3][y] == turn and  x+dif >= 0:
+                if occupied[x+dif][y] == turn\
+                and occupied[x+dif+1][y] == turn\
+                and occupied[x+dif+2][y] == turn\
+                and occupied[x+dif+3][y] == turn\
+                and  x+dif >= 0:
                     win = True            
             except IndexError:
                 pass
@@ -19,7 +23,11 @@ def simulate():
     def vertical4(x, y, turn):
         win = False
         try:
-            if occupied[x][y] == turn and occupied[x][y-1] == turn and occupied[x][y-2] == turn and occupied[x][y-3] == turn and y-3 >= 0:
+            if occupied[x][y] == turn\
+            and occupied[x][y-1] == turn\
+            and occupied[x][y-2] == turn\
+            and occupied[x][y-3] == turn\
+            and y-3 >= 0:
                 win = True     
         except IndexError:
             pass
@@ -29,7 +37,11 @@ def simulate():
         win = False
         for dif in (-3, -2, -1, 0):
             try:
-                if occupied[x+dif][y+dif] == turn and occupied[x+dif+1][y+dif+1] == turn and occupied[x+dif+2][y+dif+2] == turn and occupied[x+dif+3][y+dif+3] == turn and x+dif >=  0 and y+dif >= 0:
+                if occupied[x+dif][y+dif] == turn\
+                and occupied[x+dif+1][y+dif+1] == turn\
+                and occupied[x+dif+2][y+dif+2] == turn\
+                and occupied[x+dif+3][y+dif+3] == turn\
+                and x+dif >=  0 and y+dif >= 0:
                     win = True            
             except IndexError:
                 pass
@@ -39,7 +51,11 @@ def simulate():
         win = False
         for dif in (-3, -2, -1, 0):
             try:
-                if occupied[x+dif][y-dif] == turn and occupied[x+dif+1][y-dif-1] == turn and occupied[x+dif+2][y-dif-2] == turn and occupied[x+dif+3][y-dif-3] == turn and x+dif >=  0 and y-dif-3 >= 0:
+                if occupied[x+dif][y-dif] == turn\
+                and occupied[x+dif+1][y-dif-1] == turn\
+                and occupied[x+dif+2][y-dif-2] == turn\
+                and occupied[x+dif+3][y-dif-3] == turn\
+                and x+dif >=  0 and y-dif-3 >= 0:
                     win = True            
             except IndexError:
                 pass
@@ -47,7 +63,7 @@ def simulate():
     # Define a win_game() function to check if someone wins the game
     def win_game(col, row, turn):
         win = False
-        # Convert column and row numbers to indexes in the list of lists occupied
+        # Convert column and row numbers to list indexes
         x = col-1
         y = row-1
         # Check all winning possibilities
