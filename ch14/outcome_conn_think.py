@@ -11,7 +11,11 @@ def simulate():
         win = False
         for dif in (-3, -2, -1, 0):
             try:
-                if board[x+dif][y] == color and board[x+dif+1][y] == color and board[x+dif+2][y] == color and board[x+dif+3][y] == color and  x+dif >= 0:
+                if board[x+dif][y] == color\
+                and board[x+dif+1][y] == color\
+                and board[x+dif+2][y] == color\
+                and board[x+dif+3][y] == color\
+                and  x+dif >=  0:
                     win = True            
             except IndexError:
                 pass
@@ -20,7 +24,11 @@ def simulate():
     def vertical4(x, y, color, board):
         win = False
         try:
-            if board[x][y] == color and board[x][y-1] == color and board[x][y-2] == color and board[x][y-3] == color and y-3 >= 0:
+            if board[x][y] == color\
+            and board[x][y-1] == color\
+            and board[x][y-2] == color\
+            and board[x][y-3] == color\
+            and y-3 >=  0:
                 win = True     
         except IndexError:
             pass
@@ -30,7 +38,11 @@ def simulate():
         win = False
         for dif in (-3, -2, -1, 0):
             try:
-                if board[x+dif][y+dif] == color and board[x+dif+1][y+dif+1] == color and board[x+dif+2][y+dif+2] == color and board[x+dif+3][y+dif+3] == color and x+dif >= 0 and y+dif >= 0:
+                if board[x+dif][y+dif] == color\
+                and board[x+dif+1][y+dif+1] == color\
+                and board[x+dif+2][y+dif+2] == color\
+                and board[x+dif+3][y+dif+3] == color\
+                and x+dif >=  0 and y+dif >=  0:
                     win = True            
             except IndexError:
                 pass
@@ -40,7 +52,11 @@ def simulate():
         win = False
         for dif in (-3, -2, -1, 0):
             try:
-                if board[x+dif][y-dif] == color and board[x+dif+1][y-dif-1] == color and board[x+dif+2][y-dif-2] == color and board[x+dif+3][y-dif-3] == color and x+dif >= 0 and y-dif-3 >= 0:
+                if board[x+dif][y-dif] == color\
+                and board[x+dif+1][y-dif-1] == color\
+                and board[x+dif+2][y-dif-2] == color\
+                and board[x+dif+3][y-dif-3] == color\
+                and x+dif >=  0 and y-dif-3 >=  0:
                     win = True            
             except IndexError:
                 pass
