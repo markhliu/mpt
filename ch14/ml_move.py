@@ -4,7 +4,10 @@ validinputs = [1,2,3,4,5,6,7]
 # A game history
 moves_made = [4,5,4,5,4,5]
 # The game board
-occupied = [list(),list(),list(),['red','red','red'],['yellow','yellow','yellow'],list(),list()]
+occupied = [list(),list(),list(),
+            ['red','red','red'],
+            ['yellow','yellow','yellow'],
+            list(),list()]
 # Obtain gamedata
 with open('conn_simulates.pickle', 'rb') as fp:
     gamedata = pickle.load(fp)
@@ -26,8 +29,9 @@ best_move = validinputs[0]
 for move in validinputs:
     if len(outcomes[move])>0:
         outcome = sum(outcomes[move])/len(outcomes[move])
-        print(f'when the next move is {move}, the average outcome is {outcome}')
-        # If the average outcome from that move beats the current best move
+        print\
+        (f'when the next move is {move}, the average outcome is {outcome}')
+        # If the average outcome beats the current best
         if outcome>bestoutcome:
             # Update the bestoutcome
             bestoutcome = outcome
