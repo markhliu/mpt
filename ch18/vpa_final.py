@@ -1,13 +1,15 @@
 import random
 import json
 
-# Import functions from the local package
-from mptpkg import voice_to_text, print_say, wakeup, timer, alarm, joke, email, know_all, music_play, music_stop, news_brief, news_stop, live_radio, radio_stop, ttt, conn, stock_price, voice_translate
+# Ensure the following functions are imported in /mpt/mptpkg/__init__.py
+from mptpkg import voice_to_text, print_say, wakeup, timer,\
+ alarm, joke, email, know_all, music_play, music_stop,\
+ news_brief, news_stop, live_radio, radio_stop, ttt,\
+ conn, stock_price, stock_market, voice_translate
 
-# Open chats.txt and put it in a dictionary
-with open('../mypkg/chats.txt','r') as f:
-    content = f.read()  
-    chats = json.loads(content)
+# Open chats.json and put it in a dictionary
+with open('chats.json','r') as content:
+    chats = json.load(content)
 # Put the program in standby
 while True:
     # Capture your voice command quietly in standby
