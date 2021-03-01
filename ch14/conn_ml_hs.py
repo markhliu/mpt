@@ -55,7 +55,11 @@ def horizontal4(x, y, color, board):
     win = False
     for dif in (-3, -2, -1, 0):
         try:
-            if board[x+dif][y] == color and board[x+dif+1][y] == color and board[x+dif+2][y] == color and board[x+dif+3][y] == color and  x+dif >= 0:
+            if board[x+dif][y] == color\
+            and board[x+dif+1][y] == color\
+            and board[x+dif+2][y] == color\
+            and board[x+dif+3][y] == color\
+            and  x+dif >=  0:
                 win = True            
         except IndexError:
             pass
@@ -64,7 +68,11 @@ def horizontal4(x, y, color, board):
 def vertical4(x, y, color, board):
     win = False
     try:
-        if board[x][y] == color and board[x][y-1] == color and board[x][y-2] == color and board[x][y-3] == color and y-3 >= 0:
+        if board[x][y] == color\
+        and board[x][y-1] == color\
+        and board[x][y-2] == color\
+        and board[x][y-3] == color\
+        and y-3 >=  0:
             win = True     
     except IndexError:
         pass
@@ -74,7 +82,11 @@ def forward4(x, y, color, board):
     win = False
     for dif in (-3, -2, -1, 0):
         try:
-            if board[x+dif][y+dif] == color and board[x+dif+1][y+dif+1] == color and board[x+dif+2][y+dif+2] == color and board[x+dif+3][y+dif+3] == color and x+dif >= 0 and y+dif >=  0:
+            if board[x+dif][y+dif] == color\
+            and board[x+dif+1][y+dif+1] == color\
+            and board[x+dif+2][y+dif+2] == color\
+            and board[x+dif+3][y+dif+3] == color\
+            and x+dif >=  0 and y+dif >=  0:
                 win = True            
         except IndexError:
             pass
@@ -84,15 +96,19 @@ def back4(x, y, color, board):
     win = False
     for dif in (-3, -2, -1, 0):
         try:
-            if board[x+dif][y-dif] == color and board[x+dif+1][y-dif-1] == color and board[x+dif+2][y-dif-2] == color and board[x+dif+3][y-dif-3] == color and x+dif >= 0 and y-dif-3 >=  0:
+            if board[x+dif][y-dif] == color\
+            and board[x+dif+1][y-dif-1] == color\
+            and board[x+dif+2][y-dif-2] == color\
+            and board[x+dif+3][y-dif-3] == color\
+            and x+dif >=  0 and y-dif-3 >=  0:
                 win = True            
         except IndexError:
             pass
-    return win     
+    return win        
 # Define a win_game() function to check if someone wins the game
 def win_game(num, color, board):
     win = False
-    # Convert column and row numbers to indexes in the list of lists board
+    # Convert column and row numbers to list indexes 
     x = num-1
     y = len(board[x])-1
     # Check all winning possibilities
@@ -138,7 +154,7 @@ def best_move():
     for move in validinputs:
         if len(outcomes[move])>0:
             outcome = sum(outcomes[move])/len(outcomes[move])
-            # If the average outcome from that move beats the current best move
+            # If the average outcome beats the current best
             if outcome>bestoutcome:
                 # Update the bestoutcome
                 bestoutcome = outcome
@@ -174,7 +190,8 @@ def computer_move():
     if win_game(col, turn, occupied) == True:
         # If a player wins, invalid all moves, end the game
         validinputs = []
-        messagebox.showinfo("End Game",f"Congrats player {turn}, you won!")
+        messagebox.showinfo\
+        ("End Game",f"Congrats player {turn}, you won!")
     # If all cellls are occupied and no winner, it's a tie
     elif rounds == 42:
         messagebox.showinfo("Tie Game","Game over, it's a tie!")
@@ -231,7 +248,8 @@ while len(validinputs)>0:
                 # If a player wins, invalid all moves, end the game
                 validinputs = []
                 print_say(f"Congrats player {turn}, you won!")
-                messagebox.showinfo("End Game",f"Congrats player {turn}, you won!")
+                messagebox.showinfo\
+                ("End Game",f"Congrats player {turn}, you won!")
                 break
             # If all cellls are occupied and no winner, it's a tie
             elif rounds == 42:
