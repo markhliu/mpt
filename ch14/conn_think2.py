@@ -52,7 +52,11 @@ def horizontal4(x, y, color, board):
     win = False
     for dif in (-3, -2, -1, 0):
         try:
-            if board[x+dif][y] == color and board[x+dif+1][y] == color and board[x+dif+2][y] == color and board[x+dif+3][y] == color and  x+dif >= 0:
+            if board[x+dif][y] == color\
+            and board[x+dif+1][y] == color\
+            and board[x+dif+2][y] == color\
+            and board[x+dif+3][y] == color\
+            and  x+dif >= 0:
                 win = True            
         except IndexError:
             pass
@@ -61,7 +65,11 @@ def horizontal4(x, y, color, board):
 def vertical4(x, y, color, board):
     win = False
     try:
-        if board[x][y] == color and board[x][y-1] == color and board[x][y-2] == color and board[x][y-3] == color and y-3 >= 0:
+        if board[x][y] == color\
+        and board[x][y-1] == color\
+        and board[x][y-2] == color\
+        and board[x][y-3] == color\
+        and y-3 >= 0:
             win = True     
     except IndexError:
         pass
@@ -71,7 +79,11 @@ def forward4(x, y, color, board):
     win = False
     for dif in (-3, -2, -1, 0):
         try:
-            if board[x+dif][y+dif] == color and board[x+dif+1][y+dif+1] == color and board[x+dif+2][y+dif+2] == color and board[x+dif+3][y+dif+3] == color and x+dif >= 0 and y+dif >= 0:
+            if board[x+dif][y+dif] == color\
+            and board[x+dif+1][y+dif+1] == color\
+            and board[x+dif+2][y+dif+2] == color\
+            and board[x+dif+3][y+dif+3] == color\
+            and x+dif >= 0 and y+dif >= 0:
                 win = True            
         except IndexError:
             pass
@@ -81,7 +93,11 @@ def back4(x, y, color, board):
     win = False
     for dif in (-3, -2, -1, 0):
         try:
-            if board[x+dif][y-dif] == color and board[x+dif+1][y-dif-1] == color and board[x+dif+2][y-dif-2] == color and board[x+dif+3][y-dif-3] == color and x+dif >= 0 and y-dif-3 >= 0:
+            if board[x+dif][y-dif] == color\
+            and board[x+dif+1][y-dif-1] == color\
+            and board[x+dif+2][y-dif-2] == color\
+            and board[x+dif+3][y-dif-3] == color\
+            and x+dif >= 0 and y-dif-3 >= 0:
                 win = True            
         except IndexError:
             pass
@@ -113,7 +129,7 @@ def best_move():
     # If only one column has free slots, take it
     if len(validinputs) == 1:
         return validinputs[0]
-    # Otherwise, see what will happen the next move hypothetically 
+    # Otherwise, see what will happen in the next move hypothetically 
     winner = []
     # Go through all possible moves, and see if there is a winning move
     for move in validinputs:
@@ -127,7 +143,7 @@ def best_move():
     # If no winning move, look two steps ahead
     if len(winner) == 0 and len(validinputs)>=2:
         loser = []
-        # Check if your opponent has a winning move        
+        # Check if your opponent has a winning move
         for m1 in validinputs:
             for m2 in validinputs:
                 if m2 != m1:
@@ -139,10 +155,10 @@ def best_move():
                 if m2 == m1 and len(occupied[m1-1]) <= 4:
                     tooccupy2 = deepcopy(occupied)
                     tooccupy2[m1-1].append('red')
-                    tooccupy2[m2-1].append('yellow')                    
+                    tooccupy2[m2-1].append('yellow')
                     if win_game(m2,'yellow',tooccupy2) == True:
                         loser.append(m2) 
-        # If your opponent has a winnng move, block it                       
+        # If your opponent has a winning move, block it
         if len(winner)>0:
             return winner[0]
         # If you can make a move to help your opponent to win, avoid it
@@ -151,7 +167,7 @@ def best_move():
             for i in range(len(loser)):
                 myvalids.remove(loser[i])
             if len(myvalids)>0:
-                return choice(myvalids)        
+                return choice(myvalids)  
 def computer_move():
     global turn, rounds, validinputs
     # Choose the best move
