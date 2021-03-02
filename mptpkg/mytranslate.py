@@ -1,6 +1,6 @@
 from mptpkg import print_say
 
-lang_abbre={"english":"en",
+lang_abbre = {"english":"en",
             "chinese":"zh-cn",
             "spanish":"es-es",
             "french":"fr-fr",
@@ -11,7 +11,7 @@ lang_abbre={"english":"en",
             "german":"de",
             "italian":"it"}
 
-# Import the platform module to identiy your OS
+# Import the platform module to identify your OS
 import platform
 
 # If you are using Windows, use gtts
@@ -25,12 +25,12 @@ if platform.system() == "Windows":
     
     def voice_translate(inp):
         # Exact the phrase and the language name
-        ps1=inp.find('how to say')
-        ps2=inp.find(' in ')
+        ps1 = inp.find('how to say')
+        ps2 = inp.find(' in ')
         try:
-            eng_phrase=inp[ps1+10:ps2]
-            tolang=inp[ps2+4:]
-            translator= Translator(from_lang="english",to_lang=tolang)
+            eng_phrase = inp[ps1+10:ps2]
+            tolang = inp[ps2+4:]
+            translator = Translator(from_lang="english",to_lang=tolang)
             translation = translator.translate(eng_phrase)
             tts = gTTS(text=translation, lang=lang_abbre[tolang])
             print_say(f"The {tolang} for {eng_phrase} is")
@@ -49,12 +49,12 @@ if  platform.system() == "Darwin" or platform.system() == "Linux":
 
     def voice_translate(inp):
         # Exact the phrase and the language name
-        ps1=inp.find('how to say')
-        ps2=inp.find(' in ')
+        ps1 = inp.find('how to say')
+        ps2 = inp.find(' in ')
         try:
-            eng_phrase=inp[ps1+10:ps2]
-            tolang=inp[ps2+4:]
-            translator= Translator(from_lang="english",to_lang=tolang)
+            eng_phrase = inp[ps1+10:ps2]
+            tolang = inp[ps2+4:]
+            translator = Translator(from_lang="english",to_lang=tolang)
             translation = translator.translate(eng_phrase)
             print_say(f"The {tolang} for {eng_phrase} is")
             print(translation)
