@@ -13,3 +13,4 @@ from .myradio import live_radio, radio_stop
 from .myttt import ttt
 from .myconn import conn
 from .mystock import stock_market, stock_price
+from .mytranslate import voice_translate
