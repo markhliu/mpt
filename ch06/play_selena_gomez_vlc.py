@@ -2,7 +2,7 @@ import os
 import random
 from vlc import MediaPlayer
 
-# Import functions from the loacal package
+# Import functions from the local package
 from mptpkg import voice_to_text, print_say
 
 # Start an infinite loop to take your voice commands
@@ -33,7 +33,8 @@ while True:
         # If either first name or last name in the file name, put in list
         with os.scandir("./chat") as files:
             for file in files:
-                if (firstname in file.name or lastname in file.name) and "mp3" in file.name:
+                if (firstname in file.name or lastname in file.name)\
+                and "mp3" in file.name:
                     mysongs.append(file.name)
         # Randomly select one from the list and play
         mysong=random.choice(mysongs)
