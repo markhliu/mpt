@@ -58,7 +58,8 @@ if  platform.system() == "Darwin" or platform.system() == "Linux":
             translation = translator.translate(eng_phrase)
             print_say(f"The {tolang} for {eng_phrase} is")
             print(translation)
-            translation=translation.replace('"','')
-            os.system(f'gtts-cli --nocheck "{translation}" --lang {lang_abbre[tolang]} | mpg123 -q -')            
+            tr = translation.replace('"','')
+            ab = lang_abbre[tolang]
+            os.system(f'gtts-cli --nocheck "{tr}" --lang {ab} | mpg123 -q -')               
         except:
             print_say("sorry, cannot find what you are looking for!")
