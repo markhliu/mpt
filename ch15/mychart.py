@@ -48,7 +48,7 @@ def candle_stick(firm):
         plt.figtext(0.3,0.15,'Gray: Close < Open')
         # Put chart title and axis labels
         plt.title(f'Candlestick Chart for the Stock of {firm}')
-        plt.ylabel('Pirce')
+        plt.ylabel('Price')
         plt.xlabel('Date')
         plt.show()
         print_say(f"Here is the candlestick chart for {firm}.") 
