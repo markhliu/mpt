@@ -22,7 +22,7 @@ def music_play(v_inp):
     # Create a list to contain songs 
     mysongs = []
     # If either first name or last name in the file name, put in list
-    with os.scandir("../ch06/chat") as files:
+    with os.scandir("../ch05/chat") as files:
         for file in files:
             if (firstname in file.name.lower() or lastname in file.name.lower())\
             and "mp3" in file.name:
@@ -35,7 +35,7 @@ def music_play(v_inp):
         mysong = random.choice(mysongs)
         print_say(f"play the song {mysong} for you.")
         mixer.init()
-        mixer.music.load(f'../ch06/chat/{mysong}')
+        mixer.music.load(f'../ch05/chat/{mysong}')
         mixer.music.play()
 
 # Define a function to stop music
