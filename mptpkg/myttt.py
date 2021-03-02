@@ -123,7 +123,8 @@ def ttt():
         return choice(validinputs)
     # Ask you for your choice of opponent
     while True:
-        print_say("Do you want your opponent to be a person, a simple computer, or a smart computer?")
+        print_say('''Do you want your opponent to be a person,
+        a simple computer, or a smart computer?''')
         which_player = voice_to_text().lower()
         print_say(f"You said {which_player}.")
         if 'person' in which_player:
