@@ -22,7 +22,7 @@ def stock_price(v_inp):
         # Obtain real-time stock price from Yahoo
         price = round(float(si.get_live_price(ticker)),2)
         # Speak the stock price
-        print_say(f"the stock price for {myfirm} is ${price}")
+        print_say(f"the stock price for {myfirm} is {price} dollars")
         # If price is not found, the script will tell you
     except:
         print_say("sorry, I cannot find what you are looking for!")
