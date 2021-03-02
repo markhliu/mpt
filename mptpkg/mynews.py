@@ -20,9 +20,9 @@ def news_brief():
     # Download the mp3 file
     mymp3 = cast[0:pos]
     x = choice(range(1000000))
-    mymp3 = requests.get(mymp3)
+    mymp3_file = requests.get(mymp3)
     with open(f'f{x}.mp3','wb') as f:
-        f.write(mymp3.content)
+        f.write(mymp3_file.content)
     # Play the mp3 file
     mixer.init()
     mixer.music.load(f'f{x}.mp3')
