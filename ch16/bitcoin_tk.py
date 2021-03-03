@@ -2,7 +2,6 @@ import tkinter as tk
 import requests
 import time
 from datetime import datetime
-print(datetime.today().strftime("%B %d, %Y"))
 
 # Specify the url to find the Bitcoin price
 url = 'https://api.coindesk.com/v1/bpi/currentprice.json'
