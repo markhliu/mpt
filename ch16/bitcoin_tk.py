@@ -25,8 +25,8 @@ def bitcoin_watch():
     response_json = response.json()
     price = response_json['bpi']['USD']['rate_float']
     # Obtain current date and time information         
-    tdate = arrow.utcnow().format('MMMM DD, YYYY')
-    tm = arrow.utcnow().format('hh:mm:ss A')
+    tdate = arrow.now().format('MMMM DD, YYYY')
+    tm = arrow.now().format('hh:mm:ss A')
     # Put the date and time information in the first label
     label.configure(text=tdate + "\n" + tm)
     # Put price info in the second label        
