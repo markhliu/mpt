@@ -56,12 +56,13 @@ def stock_watch():
     # Put the five prices in a list p
     p = [p1, p2, p3, p4, p5]
     # Obtain current date and time infomration         
-    tdate = arrow.utcnow().format('MMMM DD, YYYY')
-    tm = arrow.utcnow().format('hh:mm:ss A')
+    tdate = arrow.now().format('MMMM DD, YYYY')
+    tm = arrow.now().format('hh:mm:ss A')
     # Put the date and time information in the first label         
     label.configure(text=tdate + "\n" + tm)
     # Put all the five messages on the stock market in the second label        
-    label2.configure(text=m1 + "\n" + m2 + "\n" + m3 + "\n" + m4 + "\n" + m5, justify=tk.LEFT)
+    label2.configure(text=m1 +\
+         "\n" + m2 + "\n" + m3 + "\n" + m4 + "\n" + m5, justify=tk.LEFT)
     # If there is update in the marekt, announce it
     for i in range(5):
         if p[i] != oldprice[i]:
@@ -69,7 +70,8 @@ def stock_watch():
             if i <= 1:
                 print_say(f'The latest value for {names[i]} is {p[i]}!')
             else:
-                print_say(f'The latest stock price for {names[i]} is {p[i]} dollars!')
+                print_say\
+                (f'The latest stock price for {names[i]} is {p[i]} dollars!')
                 # if price goes out of bounds, announce it
     for i in range(5):
         if p[i] > maxprice[i]:
