@@ -1,5 +1,5 @@
-# mpt
-AI
+# Make Python Talk
+
 Dear Readers: 
 This is the repository for the book Make Python Talk. You can find all resources for the book here.
 
