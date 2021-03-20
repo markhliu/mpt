@@ -1,4 +1,4 @@
-# Make sure you pat hello.mp3 in the same folder as this script
+# Make sure you put hello.mp3 in the same folder as this script
 from pydub import AudioSegment
 from pydub.playback import play
 
