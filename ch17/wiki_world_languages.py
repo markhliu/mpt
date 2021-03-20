@@ -10,9 +10,9 @@ from mptpkg import print_say
 
 # Create a dictionary of languages and the corresponding codes
 lang_abbre = {"english":"en",
-            "chinese":"zh-cn",
-            "spanish":"es-es",
-            "french":"fr-fr",
+            "chinese":"zh",
+            "spanish":"es",
+            "french":"fr",
             "japanese":"ja",
             "portuguese":"pt",
             "russian":"ru",
@@ -32,14 +32,14 @@ with sr.Microphone() as source:
     while True:
         try:
             audio = speech.listen(source)
-            my_input = speech.recognize_google(audio, language=lang_abbre[lang][0:2])
+            my_input = speech.recognize_google(audio, language=lang_abbre[lang])
             break
         except sr.UnknownValueError:
             print_say("Sorry, I cannot understand what you said!")
 # Print out what you said
 print(f"you said: {my_input}")
 # Obtain answer from Wikipedia and print out
-wikipedia.set_lang(lang_abbre[lang][0:2])
+wikipedia.set_lang(lang_abbre[lang])
 ans = wikipedia.summary(my_input)[0:200]
 print(ans)
 # Convert text to speech in the language of your choice
