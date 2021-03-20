@@ -25,7 +25,7 @@ translator = Translator(from_lang="en",to_lang="es")
 translation = translator.translate(my_input)
 print(translation)
 # Convert text to speech in Spanish
-tts = gTTS(text=translation,lang='es-es')
+tts = gTTS(text=translation,lang='es')
 # Create a temporary file 
 voice = BytesIO()
 # Save the voice output as an audio file
