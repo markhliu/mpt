@@ -6,9 +6,9 @@ from pydub.playback import play
 
 # Create a dictionary of languages and the corresponding codes
 lang_abbre = {"english":"en",
-            "chinese":"zh-cn",
-            "spanish":"es-es",
-            "french":"fr-fr",
+            "chinese":"zh",
+            "spanish":"es",
+            "french":"fr",
             "japanese":"ja",
             "portuguese":"pt",
             "russian":"ru",
