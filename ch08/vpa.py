@@ -1,3 +1,12 @@
+
+''' Before running this script, add the following in /mpt/mptpkg/__init__.py 
+from .mywakeup import wakeup
+from .mytimer import timer
+from .myalarm import alarm
+from .myjoke import joke
+from .myemail import email
+'''
+
 # Import functions from the loacal package
 from mptpkg import voice_to_text, print_say, wakeup, timer, alarm, joke, email
 
