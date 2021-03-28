@@ -1,3 +1,8 @@
+
+''' Before running this script, add the following in /mpt/mptpkg/__init__.py 
+from .myknowall import know_all
+'''
+
 # Import functions from the loacal package
 from mptpkg import voice_to_text, print_say, wakeup, timer, alarm, joke, email, know_all
 
