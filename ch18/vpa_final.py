@@ -51,6 +51,7 @@ while True:
                 else:
                     continue
         # Activate the radio 
+        # Put chromedriver.exe in the same folder as this script 
         elif "live radio" in inp:
             live_radio()
             # Say stop to stop the radio any time
