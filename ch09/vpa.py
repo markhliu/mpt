@@ -4,7 +4,8 @@ from .myknowall import know_all
 '''
 
 # Import functions from the loacal package
-from mptpkg import voice_to_text, print_say, wakeup, timer, alarm, joke, email, know_all
+from mptpkg import voice_to_text, print_say, wakeup, timer,\
+alarm, joke, email, know_all
 
 # Put the script in standby
 while True:
