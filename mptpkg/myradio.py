@@ -1,4 +1,4 @@
- 
+# Put chromedriver.exe in the same folder as vpa_final.py  
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options  
 
