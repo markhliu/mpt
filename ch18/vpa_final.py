@@ -1,3 +1,14 @@
+
+''' Before running this script, add the following in /mpt/mptpkg/__init__.py
+from .mymusic import music_play, music_stop
+from .mynews import news_brief, news_stop
+from .myradio import live_radio, radio_stop
+from .myttt import ttt
+from .myconn import conn
+from .mystock import stock_market, stock_price
+from .mytranslate import voice_translate
+'''
+
 import random
 import json
 
