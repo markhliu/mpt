@@ -24,8 +24,8 @@ def music_play(v_inp):
     # If either first name or last name in the file name, put in list
     with os.scandir("../ch05/chat") as files:
         for file in files:
-            if (firstname in file.name.lower() or lastname in file.name.lower())\
-            and "mp3" in file.name:
+            if (firstname in file.name.lower() or lastname\
+                in file.name.lower()) and "mp3" in file.name:
                 mysongs.append(file.name)
     # Let you know if no song by the artist
     if len(mysongs) == 0:
