@@ -1,9 +1,9 @@
 from mptpkg import print_say
 
 lang_abbre = {"english":"en",
-            "chinese":"zh-cn",
-            "spanish":"es-es",
-            "french":"fr-fr",
+            "chinese":"zh",
+            "spanish":"es",
+            "french":"fr",
             "japanese":"ja",
             "portuguese":"pt",
             "russian":"ru",
@@ -24,9 +24,9 @@ if platform.system() == "Windows":
     from pydub.playback import play
     
     def voice_translate(inp):
-        # Exact the phrase and the language name
+        # Extract the phrase and the language name
         ps1 = inp.find('how to say')
-        ps2 = inp.find(' in ')
+        ps2 = inp.rfind(' in ')
         try:
             eng_phrase = inp[ps1+10:ps2]
             tolang = inp[ps2+4:]
@@ -48,9 +48,9 @@ if  platform.system() == "Darwin" or platform.system() == "Linux":
     from gtts import gTTS
 
     def voice_translate(inp):
-        # Exact the phrase and the language name
+        # Extract the phrase and the language name
         ps1 = inp.find('how to say')
-        ps2 = inp.find(' in ')
+        ps2 = inp.rfind(' in ')
         try:
             eng_phrase = inp[ps1+10:ps2]
             tolang = inp[ps2+4:]
