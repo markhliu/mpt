@@ -16,7 +16,7 @@ def know_all(v_inp):
         print_say(next(res.results).text)
     except:
         try:
-            ans=wikipedia.summary(v_inp)
+            ans = wikipedia.summary(v_inp)
             print_say(ans[0:200])
         except:
             # If still no answer
