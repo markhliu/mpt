@@ -23,20 +23,20 @@ def timer(v_inp):
         addhour = v_inp[pos1+len("timer for"):pos2]
         addminute = v_inp[pos2+len("hour"):pos3]      
     # Current hour, minute, and second
-    startHH = arrow.utcnow().format('H')
-    startmm = arrow.utcnow().format('m')
-    startss = arrow.utcnow().format('s')
+    startHH = arrow.now().format('H')
+    startmm = arrow.now().format('m')
+    startss = arrow.now().format('s')
     # Obtain the time for the timer to go off
     newHH = int(startHH)+int(addhour)
     newmm = int(startmm)+int(addminute)
-    if newmm>59:
+    if newmm > 59:
         newmm -= 60
         newHH += 1
-    newHH=newHH%24  
+    newHH = newHH%24  
     end_time = str(newHH)+":"+str(newmm)+":"+startss
     print_say("Your timer will go off at "+end_time)
     while True:
-       timenow = arrow.utcnow().format('H:m:s')
+       timenow = arrow.now().format('H:m:s')
        if timenow == end_time:
            print_say("Your timer has gone off!")
            break
