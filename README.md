@@ -26,9 +26,9 @@ In Chapter 8, you'll add the know_all module to the package mptpkg. Make sure yo
 from .myknowall import know_all
 
 In Chapter 17, add the following in /mpt/mptpkg/__init__.py \
-from .mymusic import music_play, music_stop \ 
-from .mynews import news_brief, news_stop \  
-from .myradio import live_radio, radio_stop \ 
+from .mymusic import music_play, music_stop \
+from .mynews import news_brief, news_stop \ 
+from .myradio import live_radio, radio_stop \
 from .myttt import ttt \
 from .myconn import conn \
 from .mystock import stock_market, stock_price \
