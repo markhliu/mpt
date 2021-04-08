@@ -2,7 +2,7 @@
 import platform
 
 if  platform.system() == "Linux":
-    from ctypes import *
+    from ctypes import CFUNCTYPE, c_char_p, c_int, cdll
     
     # Define error handler
     error_handler = CFUNCTYPE(None, c_char_p, c_int, c_char_p, c_int, c_char_p)
