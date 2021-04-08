@@ -27,7 +27,7 @@ from .myknowall import know_all
 
 In Chapter 17, add the following in /mpt/mptpkg/__init__.py \
 from .mymusic import music_play, music_stop \
-from .mynews import news_brief, news_stop \ 
+from .mynews import news_brief, news_stop \
 from .myradio import live_radio, radio_stop \
 from .myttt import ttt \
 from .myconn import conn \
