@@ -28,19 +28,21 @@ if  platform.system() == "Darwin" or platform.system() == "Linux":
         texts=texts.replace('"','')
         os.system(f'gtts-cli --nocheck "{texts}" | mpg123 -q -')
 
-# if  platform.system() == "Darwin" or platform.system() == "Linux":
-#     from io import BytesIO
-#     
-#     from pydub import AudioSegment
-#     from pydub.playback import play
-#     from gtts import gTTS
-#     
-#     def print_say(text):
-#     
-#         print(text)
-#         voice=BytesIO()
-#         mytts=gTTS(text = text, lang = 'en', slow=False)
-#         mytts.write_to_fp(voice)
-#         voice.seek(0)
-#         play(AudioSegment.from_mp3(voice))
-#     
+'''
+# If gtts-cli doesn't work, use the following
+if  platform.system() == "Darwin" or platform.system() == "Linux":
+    from io import BytesIO
+    
+    from pydub import AudioSegment
+    from pydub.playback import play
+    from gtts import gTTS
+    
+    def print_say(text):
+    
+        print(text)
+        voice=BytesIO()
+        mytts=gTTS(text = text, lang = 'en', slow=False)
+        mytts.write_to_fp(voice)
+        voice.seek(0)
+        play(AudioSegment.from_mp3(voice))
+'''  
