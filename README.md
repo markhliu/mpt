@@ -15,17 +15,17 @@ Once you reach Chapter 5, you'll install a custom-made package named mptpkg for 
 This way, you don’t need to copy and paste local module files such as mysr.py and mysay.py to all individual chapter folders.
 This also helps keep the code consistent throughout the book. You’ll learn how a Python package works and how to create one yourself along the way.
 
-In Chapter 7, you'll add more modules to the package mptpkg. Make sure you add the following five lines in /mpt/mptpkg/__init__.py \
+In Chapter 7, you'll add more modules to the package mptpkg. Make sure you add the following five lines in /mpt/mptpkg/_init_.py \
 from .mywakeup import wakeup \
 from .mytimer import timer \
 from .myalarm import alarm \
 from .myjoke import joke \
 from .myemail import email
 
-In Chapter 8, you'll add the know_all module to the package mptpkg. Make sure you add the following in /mpt/mptpkg/__init__.py \
+In Chapter 8, you'll add the know_all module to the package mptpkg. Make sure you add the following in /mpt/mptpkg/_init_.py \
 from .myknowall import know_all
 
-In Chapter 17, add the following in /mpt/mptpkg/__init__.py \
+In Chapter 17, add the following in /mpt/mptpkg/_init_.py \
 from .mymusic import music_play, music_stop \
 from .mynews import news_brief, news_stop \
 from .myradio import live_radio, radio_stop \
