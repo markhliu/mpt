@@ -25,7 +25,7 @@ from .myemail import email
 In Chapter 8, you'll add the know_all module to the package mptpkg. Make sure you add the following in /mpt/mptpkg/\_\_init__.py \
 from .myknowall import know_all
 
-In Chapter 17, add the following in /mpt/mptpkg/\_\_init__..py \
+In Chapter 17, add the following in /mpt/mptpkg/\_\_init__.py \
 from .mymusic import music_play, music_stop \
 from .mynews import news_brief, news_stop \
 from .myradio import live_radio, radio_stop \
