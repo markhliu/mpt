@@ -4,8 +4,8 @@ from mysay import print_say
 
 while True:   
     print('Python is listening...')
-    inp= voice_to_text()
-    if inp=="stop listening":
+    inp = voice_to_text()
+    if inp == "stop listening":
         print_say(f'You just said {inp}, goodbye!')
         break
     else:
