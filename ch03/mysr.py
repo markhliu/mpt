@@ -5,7 +5,8 @@ if  platform.system() == "Linux":
     from ctypes import CFUNCTYPE, c_char_p, c_int, cdll
     
     # Define error handler
-    error_handler = CFUNCTYPE(None, c_char_p, c_int, c_char_p, c_int, c_char_p)
+    error_handler = CFUNCTYPE\
+	(None, c_char_p, c_int, c_char_p, c_int, c_char_p)
     # Don't do anything if there is an error message
     def py_error_handler(filename, line, function, err, fmt):
       pass
