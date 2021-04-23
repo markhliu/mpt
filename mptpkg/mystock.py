@@ -29,9 +29,9 @@ def stock_price(v_inp):
 
 # Define stock_market() function
 def stock_market():
-        # Obtain real-time index values from Yahoo
-        dow = round(float(si.get_live_price('^DJI')),2)
-        sp500 = round(float(si.get_live_price('^GSPC')),2)
-        # Announces the index values
-        print_say(f"The Dow Jones Industry Average is {dow}.")
-        print_say(f"The S&P 500 is {sp500}.")
+    # Obtain real-time index values from Yahoo
+    dow = round(float(si.get_live_price('^DJI')),2)
+    sp500 = round(float(si.get_live_price('^GSPC')),2)
+    # Announces the index values
+    print_say(f"The Dow Jones Industry Average is {dow}.")
+    print_say(f"The S&P 500 is {sp500}.")
