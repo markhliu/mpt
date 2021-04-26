@@ -1,11 +1,11 @@
 {
 "how are you":["i am good","i am fine"],
-"who are you":["i am a Python program","i am a computer program"],
-"what are your hobbies":["a program doesn't have hobbies"],
+"who are you":["i am a Python script","i am a computer script"],
+"what are your hobbies":["a script doesn't have hobbies"],
 "what's your favorite color":["blue","white"],
 "hi":["hi","hello"],
 "hello":["hello","hi"],
 "what can you do":["lots of things, try me"],
-"how old are you":["a program doesn't have age",
+"how old are you":["a script doesn't have age",
 "good question, I don't really know the answer to that"]
 }
