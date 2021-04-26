@@ -29,7 +29,7 @@ while True:
     while wake_up == "Activated": 
         # Prompt you to ask questions
         print_say("How may I help you?")
-        inp=voice_to_text().lower()
+        inp = voice_to_text().lower()
         print_say(f'You just said {inp}.')  
         # The program goes back to standby if you choose
         if "back" in inp and "stand" in inp:
@@ -44,7 +44,7 @@ while True:
             music_play(inp)
             # Say stop to stop the music any time
             while True:
-                background=voice_to_text().lower()
+                background = voice_to_text().lower()
                 if "stop" in background:
                     music_stop()
                     break
@@ -55,7 +55,7 @@ while True:
             news_brief()
             # Say stop to stop the news any time
             while True:
-                background=voice_to_text().lower()
+                background = voice_to_text().lower()
                 if "stop" in background:
                     news_stop()
                     break
@@ -67,7 +67,7 @@ while True:
             live_radio()
             # Say stop to stop the radio any time
             while True:
-                background=voice_to_text().lower()
+                background = voice_to_text().lower()
                 if "stop" in background:
                     radio_stop()
                     break
