@@ -4,7 +4,7 @@ from random import choice
 from copy import deepcopy
 
 # Set up the screen
-t.setup(600,600, 10, 70)
+t.setup(600,600,10,70)
 t.hideturtle()
 t.tracer(False)
 t.bgcolor("red")
@@ -13,9 +13,9 @@ t.title("Tic-Tac-Toe in Turtle Graphics")
 t.pensize(5)
 for i in (-100,100):  
     t.up()
-    t.goto(i, -300)
+    t.goto(i,-300)
     t.down()
-    t.goto(i, 300)
+    t.goto(i,300)
     t.up()
     t.goto(-300,i)
     t.down()
