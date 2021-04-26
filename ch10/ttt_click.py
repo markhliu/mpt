@@ -2,7 +2,7 @@ from tkinter import messagebox
 import turtle as t
 
 # Set up the screen
-t.setup(600,600, 10, 70)
+t.setup(600,600,10,70)
 t.tracer(False)
 t.bgcolor("red")
 t.title("Tic-Tac-Toe in Turtle Graphics")
@@ -10,9 +10,9 @@ t.title("Tic-Tac-Toe in Turtle Graphics")
 t.pensize(5)
 for i in (-100,100):  
     t.up()
-    t.goto(i, -300)
+    t.goto(i,-300)
     t.down()
-    t.goto(i, 300)
+    t.goto(i,300)
     t.up()
     t.goto(-300,i)
     t.down()
@@ -62,7 +62,7 @@ def mark_cell(x,y):
         col = int((x+500)//200)
         row = int((y+500)//200)
         # The cell number is a string varibale
-        cellnumber = str(col + (row - 1)*3)
+        cellnumber = str(col+(row-1)*3)
     else:
         print('you have clicked outside the game board')
     # Check if the move is a valid one
