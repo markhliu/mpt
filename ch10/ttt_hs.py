@@ -6,7 +6,7 @@ from tkinter import messagebox
 from mptpkg import voice_to_text, print_say
 
 # Set up the screen
-t.setup(600,600, 10, 70)
+t.setup(600,600,10,70)
 t.tracer(False)
 t.hideturtle()
 t.bgcolor("red")
@@ -15,9 +15,9 @@ t.title("Tic-Tac-Toe in Turtle Graphics")
 t.pensize(5)
 for i in (-100,100):  
     t.up()
-    t.goto(i, -300)
+    t.goto(i,-300)
     t.down()
-    t.goto(i, 300)
+    t.goto(i,300)
     t.up()
     t.goto(-300,i)
     t.down()
