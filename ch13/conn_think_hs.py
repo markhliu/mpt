@@ -8,7 +8,7 @@ from copy import deepcopy
 from mptpkg import voice_to_text, print_say
 
 # Set up the screen
-t.setup(700,600, 10, 70)
+t.setup(700,600,10,70)
 t.hideturtle()
 t.tracer(False)
 t.bgcolor("lightgreen")
@@ -17,9 +17,9 @@ t.title("Connect Four in Turtle Graphics")
 t.pensize(5)
 for i in range(-250,350,100):  
     t.up()
-    t.goto(i, -350)
+    t.goto(i,-350)
     t.down()
-    t.goto(i, 350)
+    t.goto(i,350)
     t.up()
 # Draw five thin gray horizontal lines to form grid    
 t.pensize(1)
