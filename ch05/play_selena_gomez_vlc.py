@@ -1,3 +1,19 @@
+'''
+For copyright reasons, put your own songs in /mpt/ch05/chat/
+
+You must have the VLC player installed on your computer
+Go to https://www.videolan.org/index.html and download the software and install it. 
+In Linux, install using this command
+sudo apt-get install vlc 
+
+To install the vlc Python module, use the following command with your virtual environment activated
+pip install python-vlc 
+
+If vlc doesn't work, use pygame or playsound or pydub
+e.g., the script pay_selena_gomez.py uses pygame 
+
+'''
+
 import os
 import random
 from vlc import MediaPlayer
@@ -41,11 +57,4 @@ while True:
         print_say(f"Play the song {mysong} for you.")
         player = MediaPlayer(f'./chat/{mysong}')
         player.play()
-        # Say stop to stop the music any time
-        while True:
-            background = voice_to_text().lower()
-            if "stop" in background:
-                player.stop()
-                break
-            else:
-                continue
+        break
