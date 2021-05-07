@@ -37,26 +37,26 @@ while True:
         break
     elif "open pdf" in inp: 
         inp = inp.replace('open pdf ','')
-        myfile = f'{inp}.pdf)'
+        myfile = f'{inp}.pdf'
         open_file(myfile)
         continue
     elif "open word" in inp: 
         inp = inp.replace('open word ','')
-        myfile = f'{inp}.docx)'
+        myfile = f'{inp}.docx'
         open_file(myfile)
         continue
     elif "open excel" in inp: 
         inp = inp.replace('open excel ','')
-        myfile = f'{inp}.xlsx)'
+        myfile = f'{inp}.xlsx'
         open_file(myfile)
         continue
     elif "open powerpoint" in inp: 
         inp = inp.replace('open powerpoint ','')
-        myfile = f'{inp}.pptx)'
+        myfile = f'{inp}.pptx'
         open_file(myfile)
         continue
     elif "open audio" in inp: 
         inp = inp.replace('open audio ','')
-        myfile = f'{inp}.mp3)'
+        myfile = f'{inp}.mp3'
         open_file(myfile)
         continue
