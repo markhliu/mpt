@@ -28,11 +28,4 @@ while True:
         mixer.init()
         mixer.music.load(f"./chat/{inp}/{mysong}")
         mixer.music.play()
-        # Say stop to stop the music any time
-        while True:
-            background = voice_to_text().lower()
-            if "stop" in background:
-                mixer.music.stop()
-                break
-            else:
-                continue
+        break
