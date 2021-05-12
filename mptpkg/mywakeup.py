@@ -34,7 +34,7 @@ def wakeup():
         except sr.WaitTimeoutError:
             pass
     if "hello" in voice_input and "python" in voice_input:
-            wakeup = "Activated" 
+        wakeup = "Activated" 
     elif "stop" in voice_input:
-            wakeup = "ToQuit"  
+        wakeup = "ToQuit"  
     return wakeup
