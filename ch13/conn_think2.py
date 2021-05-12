@@ -139,7 +139,7 @@ def best_move():
             winner.append(move)        
     # If there is a winning move, take it
     if len(winner)>0:
-            return winner[0]  
+        return winner[0]  
     # If no winning move, look two steps ahead
     if len(winner) == 0 and len(validinputs)>=2:
         loser = []
