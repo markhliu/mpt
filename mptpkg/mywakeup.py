@@ -8,7 +8,7 @@ if  platform.system() == "Linux":
     error_handler = CFUNCTYPE(None, c_char_p, c_int, c_char_p, c_int, c_char_p)
     # Don't do anything if there is an error message
     def py_error_handler(filename, line, function, err, fmt):
-      pass
+        pass
     # Pass to C
     c_error_handler = error_handler(py_error_handler)
     asound = cdll.LoadLibrary('libasound.so')
