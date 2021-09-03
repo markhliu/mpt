@@ -1,4 +1,5 @@
 # Make Python Talk
+![coverFrontBack_Page_1](https://user-images.githubusercontent.com/50116107/132008398-53b60e9c-0979-4a0c-9f39-59d277bbda14.jpg)
 
 Dear Readers: 
 
